@@ -1,6 +1,5 @@
 [ERROR] Syntax error at token "equals"
-Message: expected ')', or ',' followed by another argument declaration in the form '<var>
-content <type>'
+Message: expected ')', or ',' followed by another argument declaration in the form '<var> content <type>'
 Autosuggestion: did you mean ".", or maybe ")"?
 
 Error token:

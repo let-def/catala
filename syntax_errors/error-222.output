@@ -1,6 +1,5 @@
 [ERROR] Syntax error at token "year"
-Message: expected either 'state' definitions for the variable, or the next declaration
-for the scope
+Message: expected either 'state' definitions for the variable, or the next declaration for the scope
 Autosuggestion: did you mean "state", or maybe "depends on", or maybe "declaration", or maybe "scope", or maybe "input", or maybe "output", or maybe "context", or maybe "internal"?
 
 Error token:

@@ -411,13 +411,12 @@ let execute_syntax_error
   | 67, _ -> begin
     Some (
 # 359 "parser_lrerrors.mlyl"
-      "expected an identifier (variable name, structure field or enumeration\n\
-       constructor, possibly with a submodule qualification)" 
+      "expected an identifier (variable name, structure field or enumeration constructor, possibly with a submodule qualification)" 
     )
     end
   | 68, _ -> begin
     Some (
-# 366 "parser_lrerrors.mlyl"
+# 365 "parser_lrerrors.mlyl"
       "expected one of:\n\
        - a dot followed by an identifier ('Path.And.var')\n\
        - or a structure content ('Structname { -- field1: ... }')\n\
@@ -426,1084 +425,1075 @@ let execute_syntax_error
     end
   | 69, _ -> begin
     Some (
-# 374 "parser_lrerrors.mlyl"
-      "expected an identifier (variable name, structure field or enumeration\n\
-       constructor, possibly with a submodule qualification)" 
+# 373 "parser_lrerrors.mlyl"
+      "expected an identifier (variable name, structure field or enumeration constructor, possibly with a submodule qualification)" 
     )
     end
   | 70, _ -> begin
     Some (
-# 379 "parser_lrerrors.mlyl"
+# 377 "parser_lrerrors.mlyl"
       "the 'sum' operator must be followed by the type to be summed." 
     )
     end
   | 71, _ -> begin
     Some (
-# 383 "parser_lrerrors.mlyl"
+# 381 "parser_lrerrors.mlyl"
       "expected the structure or enumeration type of the definition under the given module." 
     )
     end
   | 72, _ -> begin
     Some (
-# 387 "parser_lrerrors.mlyl"
+# 385 "parser_lrerrors.mlyl"
       "expected 'of' then the collection on which to operate" 
     )
     end
   | 73, _ -> begin
     Some (
-# 391 "parser_lrerrors.mlyl"
+# 389 "parser_lrerrors.mlyl"
       "expected the collection on which to operate the sum" 
     )
     end
   | 74, _ -> begin
     Some (
-# 395 "parser_lrerrors.mlyl"
+# 393 "parser_lrerrors.mlyl"
       "expected 'of' then a scope to be applied" 
     )
     end
   | 75, _ -> begin
     Some (
-# 399 "parser_lrerrors.mlyl"
+# 397 "parser_lrerrors.mlyl"
       "expected a scope to be applied" 
     )
     end
   | 76, _ -> begin
     Some (
-# 403 "parser_lrerrors.mlyl"
-      "expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a\n\
-       binary operator to be applied on the results of the call" 
+# 401 "parser_lrerrors.mlyl"
+      "expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a binary operator to be applied on the results of the call" 
     )
     end
   | 77, _ -> begin
     Some (
-# 408 "parser_lrerrors.mlyl"
+# 405 "parser_lrerrors.mlyl"
       "expected the arguments to the scope call ('{ --var: ... }')" 
     )
     end
   | 78, _ -> begin
     Some (
-# 412 "parser_lrerrors.mlyl"
+# 409 "parser_lrerrors.mlyl"
       "expected a list of variable-value bindings in the form `-- var_name : <expression>`" 
     )
     end
   | 79, _ -> begin
     Some (
-# 416 "parser_lrerrors.mlyl"
+# 413 "parser_lrerrors.mlyl"
       "expected a variable name, following the form '-- var_name : <expression>'" 
     )
     end
   | 80, _ -> begin
     Some (
-# 420 "parser_lrerrors.mlyl"
+# 417 "parser_lrerrors.mlyl"
       "expected a colon, following the form '-- var_name : <expression>'" 
     )
     end
   | 81, _ -> begin
     Some (
-# 424 "parser_lrerrors.mlyl"
+# 421 "parser_lrerrors.mlyl"
       "expected an expression, following the form '-- var_name : <expression>'" 
     )
     end
   | 82, _ -> begin
     Some (
-# 428 "parser_lrerrors.mlyl"
+# 425 "parser_lrerrors.mlyl"
       "expected a boolean expression to apply 'not' on" 
     )
     end
   | 83, _ -> begin
     Some (
-# 432 "parser_lrerrors.mlyl"
+# 429 "parser_lrerrors.mlyl"
       "expected a numeric expression to apply '-' on" 
     )
     end
   | 84, _ -> begin
     Some (
-# 436 "parser_lrerrors.mlyl"
+# 433 "parser_lrerrors.mlyl"
       "expected 'of' then the collection to operate on" 
     )
     end
   | 85, _ -> begin
     Some (
-# 440 "parser_lrerrors.mlyl"
+# 437 "parser_lrerrors.mlyl"
       "expected an expression defining the collection to operate on" 
     )
     end
   | 86, _ -> begin
     Some (
-# 444 "parser_lrerrors.mlyl"
+# 441 "parser_lrerrors.mlyl"
       "expected 'of' then the collection to operate on" 
     )
     end
   | 87, _ -> begin
     Some (
-# 448 "parser_lrerrors.mlyl"
+# 445 "parser_lrerrors.mlyl"
       "expected an expression defining the collection to operate on" 
     )
     end
   | 88, _ -> begin
     Some (
-# 453 "parser_lrerrors.mlyl"
+# 450 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 89, _ -> begin
     Some (
-# 478 "parser_lrerrors.mlyl"
+# 475 "parser_lrerrors.mlyl"
       "expected a new scope use item" 
     )
     end
   | 90, _ -> begin
     Some (
-# 482 "parser_lrerrors.mlyl"
+# 479 "parser_lrerrors.mlyl"
       "expected 'var equals expression' after 'let'" 
     )
     end
   | 91, _ -> begin
     Some (
-# 486 "parser_lrerrors.mlyl"
+# 483 "parser_lrerrors.mlyl"
       "expected 'equals expression' after 'let'" 
     )
     end
   | 92, _ -> begin
     Some (
-# 490 "parser_lrerrors.mlyl"
+# 487 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 93, _ -> begin
     Some (
-# 494 "parser_lrerrors.mlyl"
+# 491 "parser_lrerrors.mlyl"
       "expected an expression describing the collection to operate on" 
     )
     end
   | 94, _ -> begin
     Some (
-# 498 "parser_lrerrors.mlyl"
+# 495 "parser_lrerrors.mlyl"
       "expected an expression describing the collection to operate on" 
     )
     end
   | 95, _ -> begin
     Some (
-# 502 "parser_lrerrors.mlyl"
+# 499 "parser_lrerrors.mlyl"
       "expected binary operator" 
     )
     end
   | 96, _ -> begin
     Some (
-# 506 "parser_lrerrors.mlyl"
+# 503 "parser_lrerrors.mlyl"
       "expected a list of field bindings of the form '-- fld : expression'" 
     )
     end
   | 97, _ -> begin
     Some (
-# 511 "parser_lrerrors.mlyl"
+# 508 "parser_lrerrors.mlyl"
       "expected a 'fldname : expression' binding" 
     )
     end
   | 98, _ -> begin
     Some (
-# 515 "parser_lrerrors.mlyl"
+# 512 "parser_lrerrors.mlyl"
       "expected an expression defining the enumeration case content" 
     )
     end
   | 99, _ -> begin
     Some (
-# 521 "parser_lrerrors.mlyl"
+# 518 "parser_lrerrors.mlyl"
       "expected an expression defining a collection" 
     )
     end
   | 100, _ -> begin
     Some (
-# 548 "parser_lrerrors.mlyl"
+# 545 "parser_lrerrors.mlyl"
       "expected 'such that <expression>'" 
     )
     end
   | 101, _ -> begin
     Some (
-# 552 "parser_lrerrors.mlyl"
+# 549 "parser_lrerrors.mlyl"
       "expected a boolean expression" 
     )
     end
   | 102, _ -> begin
     Some (
-# 577 "parser_lrerrors.mlyl"
+# 574 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 103, _ -> begin
     Some (
-# 581 "parser_lrerrors.mlyl"
+# 578 "parser_lrerrors.mlyl"
       "expected a pattern to match against" 
     )
     end
   | 104, _ -> begin
     Some (
-# 585 "parser_lrerrors.mlyl"
+# 582 "parser_lrerrors.mlyl"
       "expected an ident, as in the form 'with pattern <Case> of <ident> and <expr>'" 
     )
     end
   | 105, _ -> begin
     Some (
-# 589 "parser_lrerrors.mlyl"
+# 586 "parser_lrerrors.mlyl"
       "expected a collection expression" 
     )
     end
   | 106, _ -> begin
     Some (
-# 614 "parser_lrerrors.mlyl"
+# 611 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 107, _ -> begin
     Some (
-# 618 "parser_lrerrors.mlyl"
+# 615 "parser_lrerrors.mlyl"
       "expected an expression specifying the function argument" 
     )
     end
   | 108, _ -> begin
     Some (
-# 643 "parser_lrerrors.mlyl"
+# 640 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 109, _ -> begin
     Some (
-# 648 "parser_lrerrors.mlyl"
+# 645 "parser_lrerrors.mlyl"
       "Expected an identifier as in the form '<expression> for <ident> among <expression>'" 
     )
     end
   | 110, _ -> begin
     Some (
-# 654 "parser_lrerrors.mlyl"
+# 651 "parser_lrerrors.mlyl"
       "Expected 'in', as in the form '<expression> for <ident> among <expression>'" 
     )
     end
   | 111, _ -> begin
     Some (
-# 659 "parser_lrerrors.mlyl"
+# 656 "parser_lrerrors.mlyl"
       "expected an expression defining a collection" 
     )
     end
   | 112, _ -> begin
     Some (
-# 685 "parser_lrerrors.mlyl"
+# 682 "parser_lrerrors.mlyl"
       "Expected 'such that <expression>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 113, _ -> begin
     Some (
-# 689 "parser_lrerrors.mlyl"
+# 686 "parser_lrerrors.mlyl"
       "expected the form 'such that <expression>'" 
     )
     end
   | 114, _ -> begin
     Some (
-# 693 "parser_lrerrors.mlyl"
-      "expected an expression defining the condition to apply to the elements of the\n\
-       collection" 
+# 690 "parser_lrerrors.mlyl"
+      "expected an expression defining the condition to apply to the elements of the collection" 
     )
     end
   | 115, _ -> begin
     Some (
-# 719 "parser_lrerrors.mlyl"
+# 715 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 116, _ -> begin
     Some (
-# 723 "parser_lrerrors.mlyl"
+# 719 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 117, _ -> begin
     Some (
-# 748 "parser_lrerrors.mlyl"
+# 744 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 118, _ -> begin
     Some (
-# 752 "parser_lrerrors.mlyl"
+# 748 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 119, _ -> begin
     Some (
-# 777 "parser_lrerrors.mlyl"
+# 773 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 120, _ -> begin
     Some (
-# 781 "parser_lrerrors.mlyl"
+# 777 "parser_lrerrors.mlyl"
       "expected a structure field or sub-scope variable name" 
     )
     end
   | 121, _ -> begin
     Some (
-# 785 "parser_lrerrors.mlyl"
+# 781 "parser_lrerrors.mlyl"
       "expected a dot forming a module path, as in 'Module.variable', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 122, _ -> begin
     Some (
-# 789 "parser_lrerrors.mlyl"
+# 785 "parser_lrerrors.mlyl"
       "expected a module path, as in 'Module.Submodule.variable'" 
     )
     end
   | 123, _ -> begin
     Some (
-# 793 "parser_lrerrors.mlyl"
+# 789 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 124, _ -> begin
     Some (
-# 817 "parser_lrerrors.mlyl"
+# 813 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 125, _ -> begin
     Some (
-# 821 "parser_lrerrors.mlyl"
+# 817 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 126, _ -> begin
     Some (
-# 846 "parser_lrerrors.mlyl"
+# 842 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 127, _ -> begin
     Some (
-# 871 "parser_lrerrors.mlyl"
+# 867 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 128, _ -> begin
     Some (
-# 875 "parser_lrerrors.mlyl"
+# 871 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 129, _ -> begin
     Some (
-# 899 "parser_lrerrors.mlyl"
+# 895 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 130, _ -> begin
     Some (
-# 903 "parser_lrerrors.mlyl"
+# 899 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 131, _ -> begin
     Some (
-# 928 "parser_lrerrors.mlyl"
+# 924 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 132, _ -> begin
     Some (
-# 932 "parser_lrerrors.mlyl"
+# 928 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 133, _ -> begin
     Some (
-# 957 "parser_lrerrors.mlyl"
+# 953 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 134, _ -> begin
     Some (
-# 961 "parser_lrerrors.mlyl"
+# 957 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 135, _ -> begin
     Some (
-# 986 "parser_lrerrors.mlyl"
+# 982 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 136, _ -> begin
     Some (
-# 990 "parser_lrerrors.mlyl"
+# 986 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 137, _ -> begin
     Some (
-# 1015 "parser_lrerrors.mlyl"
+# 1011 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 138, _ -> begin
     Some (
-# 1019 "parser_lrerrors.mlyl"
+# 1015 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 139, _ -> begin
     Some (
-# 1044 "parser_lrerrors.mlyl"
+# 1040 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 140, _ -> begin
     Some (
-# 1048 "parser_lrerrors.mlyl"
+# 1044 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 141, _ -> begin
     Some (
-# 1072 "parser_lrerrors.mlyl"
+# 1068 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 142, _ -> begin
     Some (
-# 1076 "parser_lrerrors.mlyl"
+# 1072 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 143, _ -> begin
     Some (
-# 1101 "parser_lrerrors.mlyl"
+# 1097 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 144, _ -> begin
     Some (
-# 1107 "parser_lrerrors.mlyl"
+# 1103 "parser_lrerrors.mlyl"
       "expected the form '<var> among <expression> such that <expression>'" 
     )
     end
   | 145, _ -> begin
     Some (
-# 1113 "parser_lrerrors.mlyl"
+# 1109 "parser_lrerrors.mlyl"
       "expected the form '<var> among <expression> such that <expression>'" 
     )
     end
   | 146, _ -> begin
     Some (
-# 1140 "parser_lrerrors.mlyl"
+# 1136 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 147, _ -> begin
     Some (
-# 1145 "parser_lrerrors.mlyl"
+# 1141 "parser_lrerrors.mlyl"
       "expected 'maximum' or 'minimum'" 
     )
     end
   | 148, _ -> begin
     Some (
-# 1149 "parser_lrerrors.mlyl"
+# 1145 "parser_lrerrors.mlyl"
       "expected 'or if collection empty then <expression>'" 
     )
     end
   | 149, _ -> begin
     Some (
-# 1153 "parser_lrerrors.mlyl"
+# 1149 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 150, _ -> begin
     Some (
-# 1157 "parser_lrerrors.mlyl"
+# 1153 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 151, _ -> begin
     Some (
-# 1161 "parser_lrerrors.mlyl"
+# 1157 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 152, _ -> begin
     Some (
-# 1165 "parser_lrerrors.mlyl"
+# 1161 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 153, _ -> begin
     Some (
-# 1169 "parser_lrerrors.mlyl"
-      "expected an expression, following the form 'or if collection empty then\n\
-       <expression>'" 
+# 1165 "parser_lrerrors.mlyl"
+      "expected an expression, following the form 'or if collection empty then <expression>'" 
     )
     end
   | 154, _ -> begin
     Some (
-# 1195 "parser_lrerrors.mlyl"
+# 1190 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 155, _ -> begin
     Some (
-# 1199 "parser_lrerrors.mlyl"
+# 1194 "parser_lrerrors.mlyl"
       "expected 'or if collection empty then <expression>'" 
     )
     end
   | 156, _ -> begin
     Some (
-# 1203 "parser_lrerrors.mlyl"
+# 1198 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 157, _ -> begin
     Some (
-# 1207 "parser_lrerrors.mlyl"
+# 1202 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 158, _ -> begin
     Some (
-# 1211 "parser_lrerrors.mlyl"
+# 1206 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 159, _ -> begin
     Some (
-# 1215 "parser_lrerrors.mlyl"
+# 1210 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 160, _ -> begin
     Some (
-# 1219 "parser_lrerrors.mlyl"
+# 1214 "parser_lrerrors.mlyl"
       "expected an expression, following the form 'or if collection empty then <expression>'" 
     )
     end
   | 161, _ -> begin
     Some (
-# 1244 "parser_lrerrors.mlyl"
+# 1239 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 162, _ -> begin
     Some (
-# 1269 "parser_lrerrors.mlyl"
+# 1264 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 163, _ -> begin
     Some (
-# 1294 "parser_lrerrors.mlyl"
+# 1289 "parser_lrerrors.mlyl"
       "expected 'such that <expression>'" 
     )
     end
   | 164, _ -> begin
     Some (
-# 1298 "parser_lrerrors.mlyl"
+# 1293 "parser_lrerrors.mlyl"
       "expected the form 'such that <expression>'" 
     )
     end
   | 165, _ -> begin
     Some (
-# 1302 "parser_lrerrors.mlyl"
+# 1297 "parser_lrerrors.mlyl"
       "expected an expression, following the form 'such that <expression>'" 
     )
     end
   | 166, _ -> begin
     Some (
-# 1328 "parser_lrerrors.mlyl"
+# 1323 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 167, _ -> begin
     Some (
-# 1352 "parser_lrerrors.mlyl"
+# 1347 "parser_lrerrors.mlyl"
       "expected 'we have <expression>'" 
     )
     end
   | 168, _ -> begin
     Some (
-# 1356 "parser_lrerrors.mlyl"
+# 1351 "parser_lrerrors.mlyl"
       "expected the form 'we have <expression>'" 
     )
     end
   | 169, _ -> begin
     Some (
-# 1381 "parser_lrerrors.mlyl"
+# 1376 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 170, _ -> begin
     Some (
-# 1385 "parser_lrerrors.mlyl"
+# 1380 "parser_lrerrors.mlyl"
       "expected an expression, followed by 'else <expression>'" 
     )
     end
   | 171, _ -> begin
     Some (
-# 1409 "parser_lrerrors.mlyl"
+# 1404 "parser_lrerrors.mlyl"
       "expected 'else <expression>'" 
     )
     end
   | 172, _ -> begin
     Some (
-# 1413 "parser_lrerrors.mlyl"
+# 1408 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 173, _ -> begin
     Some (
-# 1437 "parser_lrerrors.mlyl"
+# 1432 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 174, _ -> begin
     Some (
-# 1441 "parser_lrerrors.mlyl"
+# 1436 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 175, _ -> begin
     Some (
-# 1466 "parser_lrerrors.mlyl"
+# 1461 "parser_lrerrors.mlyl"
       "expected the keyword 'in'" 
     )
     end
   | 176, _ -> begin
     Some (
-# 1470 "parser_lrerrors.mlyl"
+# 1465 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 177, _ -> begin
     Some (
-# 1495 "parser_lrerrors.mlyl"
+# 1490 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 178, _ -> begin
     Some (
-# 1520 "parser_lrerrors.mlyl"
+# 1515 "parser_lrerrors.mlyl"
       "expected 'with pattern -- <pattern> : <expression> ...'" 
     )
     end
   | 179, _ -> begin
     Some (
-# 1524 "parser_lrerrors.mlyl"
+# 1519 "parser_lrerrors.mlyl"
       "expected ':' followed by an expression" 
     )
     end
   | 180, _ -> begin
     Some (
-# 1528 "parser_lrerrors.mlyl"
+# 1523 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 181, _ -> begin
     Some (
-# 1553 "parser_lrerrors.mlyl"
+# 1548 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 182, _ -> begin
     Some (
-# 1557 "parser_lrerrors.mlyl"
+# 1552 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 183, _ -> begin
     Some (
-# 1582 "parser_lrerrors.mlyl"
+# 1577 "parser_lrerrors.mlyl"
       "expected a binary operator, or the next case in the form '-- NextCase : <expression>', or a keyword ending the match expression and starting the next item" 
     )
     end
   | 184, _ -> begin
     Some (
-# 1607 "parser_lrerrors.mlyl"
+# 1602 "parser_lrerrors.mlyl"
       "expected 'or if collection empty then <expression>'" 
     )
     end
   | 185, _ -> begin
     Some (
-# 1612 "parser_lrerrors.mlyl"
+# 1607 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 186, _ -> begin
     Some (
-# 1617 "parser_lrerrors.mlyl"
+# 1612 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 187, _ -> begin
     Some (
-# 1621 "parser_lrerrors.mlyl"
+# 1616 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 188, _ -> begin
     Some (
-# 1625 "parser_lrerrors.mlyl"
+# 1620 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 189, _ -> begin
     Some (
-# 1629 "parser_lrerrors.mlyl"
+# 1624 "parser_lrerrors.mlyl"
       "expected an expression, following the form 'or if collection empty then <expression>'" 
     )
     end
   | 190, _ -> begin
     Some (
-# 1654 "parser_lrerrors.mlyl"
+# 1649 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 191, _ -> begin
     Some (
-# 1679 "parser_lrerrors.mlyl"
+# 1674 "parser_lrerrors.mlyl"
       "expected 'or if collection empty then <expression>'" 
     )
     end
   | 192, _ -> begin
     Some (
-# 1684 "parser_lrerrors.mlyl"
+# 1679 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 193, _ -> begin
     Some (
-# 1689 "parser_lrerrors.mlyl"
+# 1684 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 194, _ -> begin
     Some (
-# 1693 "parser_lrerrors.mlyl"
+# 1688 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 195, _ -> begin
     Some (
-# 1697 "parser_lrerrors.mlyl"
+# 1692 "parser_lrerrors.mlyl"
       "expected the form 'or if collection empty then <expression>'" 
     )
     end
   | 196, _ -> begin
     Some (
-# 1701 "parser_lrerrors.mlyl"
-      "expected an expression, following the form 'or if collection empty then\n\
-       <expression>'" 
+# 1696 "parser_lrerrors.mlyl"
+      "expected an expression, following the form 'or if collection empty then <expression>'" 
     )
     end
   | 197, _ -> begin
     Some (
-# 1706 "parser_lrerrors.mlyl"
+# 1700 "parser_lrerrors.mlyl"
       "expected an expression for the test of the conditional" 
     )
     end
   | 198, _ -> begin
     Some (
-# 1731 "parser_lrerrors.mlyl"
+# 1725 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 199, _ -> begin
     Some (
-# 1755 "parser_lrerrors.mlyl"
+# 1749 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 200, _ -> begin
     Some (
-# 1779 "parser_lrerrors.mlyl"
+# 1773 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 201, _ -> begin
     Some (
-# 1804 "parser_lrerrors.mlyl"
+# 1798 "parser_lrerrors.mlyl"
       "expected another field in the form '-- <var>: <expression>', or a closing '}' brace" 
     )
     end
   | 202, _ -> begin
     Some (
-# 1829 "parser_lrerrors.mlyl"
+# 1823 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 203, _ -> begin
     Some (
-# 1854 "parser_lrerrors.mlyl"
+# 1848 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 204, _ -> begin
     Some (
-# 1857 "parser_lrerrors.mlyl"
+# 1851 "parser_lrerrors.mlyl"
       "expected either 'fulfilled' or 'not fulfilled'" 
     )
     end
   | 205, _ -> begin
     Some (
-# 1862 "parser_lrerrors.mlyl"
+# 1856 "parser_lrerrors.mlyl"
       "expected either 'fulfilled' or 'not fulfilled'" 
     )
     end
   | 206, _ -> begin
     Some (
-# 1865 "parser_lrerrors.mlyl"
+# 1859 "parser_lrerrors.mlyl"
       "expected an identifier defining the name of the state" 
     )
     end
   | 207, _ -> begin
     Some (
-# 1869 "parser_lrerrors.mlyl"
+# 1863 "parser_lrerrors.mlyl"
       "expected 'equals' then an expression defining the rule" 
     )
     end
   | 208, _ -> begin
     Some (
-# 1874 "parser_lrerrors.mlyl"
+# 1868 "parser_lrerrors.mlyl"
       "expected 'equals' then an expression defining the rule" 
     )
     end
   | 209, _ -> begin
     Some (
-# 1878 "parser_lrerrors.mlyl"
+# 1872 "parser_lrerrors.mlyl"
       "expected 'fulfilled' or 'not fulfilled'" 
     )
     end
   | 210, _ -> begin
     Some (
-# 1902 "parser_lrerrors.mlyl"
+# 1896 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 211, _ -> begin
     Some (
-# 1906 "parser_lrerrors.mlyl"
+# 1900 "parser_lrerrors.mlyl"
       "expected the next item in the scope, or the start of a new top-level decleration" 
     )
     end
   | 212, _ -> begin
     Some (
-# 1910 "parser_lrerrors.mlyl"
+# 1904 "parser_lrerrors.mlyl"
       "expected a variable name, optionally preceded by 'output'" 
     )
     end
   | 213, _ -> begin
     Some (
-# 1919 "parser_lrerrors.mlyl"
+# 1913 "parser_lrerrors.mlyl"
       "expected a variable name" 
     )
     end
   | 214, _ -> begin
     Some (
-# 1929 "parser_lrerrors.mlyl"
+# 1923 "parser_lrerrors.mlyl"
       "expected either 'condition', or 'content' followed by the expected variable type" 
     )
     end
   | 215, _ -> begin
     Some (
-# 1935 "parser_lrerrors.mlyl"
+# 1929 "parser_lrerrors.mlyl"
       "expected a type" 
     )
     end
   | 216, _ -> begin
     Some (
-# 1942 "parser_lrerrors.mlyl"
-      "expected either 'state' definitions for the variable, or the next declaration\n\
-       for the scope" 
+# 1936 "parser_lrerrors.mlyl"
+      "expected either 'state' definitions for the variable, or the next declaration for the scope" 
     )
     end
   | 217, _ -> begin
     Some (
-# 1948 "parser_lrerrors.mlyl"
+# 1941 "parser_lrerrors.mlyl"
       "expected a name and type for the dependency of this definition ('<ident> content <type>')" 
     )
     end
   | 218, _ -> begin
     Some (
-# 1952 "parser_lrerrors.mlyl"
+# 1945 "parser_lrerrors.mlyl"
       "expected a name and type for the dependency of this definition ('<ident> content <type>')" 
     )
     end
   | 219, _ -> begin
     Some (
-# 1957 "parser_lrerrors.mlyl"
+# 1950 "parser_lrerrors.mlyl"
       "expected a closing paren, or a comma followed by another argument specification" 
     )
     end
   | 220, _ -> begin
     Some (
-# 1961 "parser_lrerrors.mlyl"
+# 1954 "parser_lrerrors.mlyl"
       "expected a 'state' declaration for the preceding declaration, or the next declaration for the scope" 
     )
     end
   | 221, _ -> begin
     Some (
-# 1964 "parser_lrerrors.mlyl"
-      "expected either another 'state' definitions for the variable, or the next\n\
-       declaration for the scope" 
+# 1957 "parser_lrerrors.mlyl"
+      "expected either another 'state' definitions for the variable, or the next declaration for the scope" 
     )
     end
   | 222, _ -> begin
     Some (
-# 1970 "parser_lrerrors.mlyl"
+# 1962 "parser_lrerrors.mlyl"
       "expected the next declaration for the scope" 
     )
     end
   | 223, _ -> begin
     Some (
-# 1976 "parser_lrerrors.mlyl"
+# 1968 "parser_lrerrors.mlyl"
       "expected the next declaration for the scope" 
     )
     end
   | 224, _ -> begin
     Some (
-# 1981 "parser_lrerrors.mlyl"
+# 1973 "parser_lrerrors.mlyl"
       "expected the form 'depends on <ident> content <type>'" 
     )
     end
   | 225, _ -> begin
     Some (
-# 1985 "parser_lrerrors.mlyl"
+# 1977 "parser_lrerrors.mlyl"
       "expected the form 'depends on (<ident> content <type> [, <ident> content <type> ...])'" 
     )
     end
   | 226, _ -> begin
     Some (
-# 1990 "parser_lrerrors.mlyl"
+# 1982 "parser_lrerrors.mlyl"
       "expected a closing paren, or a comma followed by another argument declaration (', <ident> content <type>')" 
     )
     end
   | 227, _ -> begin
     Some (
-# 1994 "parser_lrerrors.mlyl"
+# 1986 "parser_lrerrors.mlyl"
       "expected the next definition in scope" 
     )
     end
   | 228, _ -> begin
     Some (
-# 1999 "parser_lrerrors.mlyl"
+# 1991 "parser_lrerrors.mlyl"
       "expected the next definition in scope, or a comma followed by another argument declaration (', <ident> content <type>')" 
     )
     end
   | 229, _ -> begin
     Some (
-# 2004 "parser_lrerrors.mlyl"
+# 1996 "parser_lrerrors.mlyl"
       "expected the next declaration for the scope" 
     )
     end
   | 230, _ -> begin
     Some (
-# 2007 "parser_lrerrors.mlyl"
+# 1999 "parser_lrerrors.mlyl"
       "expected the form '<ident> scope <Scope_name>', or a scope variable declaration" 
     )
     end
   | 231, _ -> begin
     Some (
-# 2010 "parser_lrerrors.mlyl"
+# 2002 "parser_lrerrors.mlyl"
       "expected a scope name" 
     )
     end
   | 232, _ -> begin
     Some (
-# 2017 "parser_lrerrors.mlyl"
+# 2009 "parser_lrerrors.mlyl"
       "expected 'content <type>'" 
     )
     end
   | 233, _ -> begin
     Some (
-# 2023 "parser_lrerrors.mlyl"
+# 2015 "parser_lrerrors.mlyl"
       "expected a type" 
     )
     end
   | 234, _ -> begin
     Some (
-# 2028 "parser_lrerrors.mlyl"
+# 2020 "parser_lrerrors.mlyl"
       "expected a variable name, following the form 'depends on <var> content <type>'" 
     )
     end
   | 235, _ -> begin
     Some (
-# 2032 "parser_lrerrors.mlyl"
+# 2024 "parser_lrerrors.mlyl"
       "expected a variable name, following the form 'depends on (<var> content <type>, ...)'" 
     )
     end
   | 236, _ -> begin
     Some (
-# 2037 "parser_lrerrors.mlyl"
-      "expected ')', or ',' followed by another argument declaration in the form '<var>\n\
-       content <type>'" 
+# 2029 "parser_lrerrors.mlyl"
+      "expected ')', or ',' followed by another argument declaration in the form '<var> content <type>'" 
     )
     end
   | 237, _ -> begin
     Some (
-# 2042 "parser_lrerrors.mlyl"
+# 2033 "parser_lrerrors.mlyl"
       "expected 'equals <expression>'" 
     )
     end
   | 238, _ -> begin
     Some (
-# 2046 "parser_lrerrors.mlyl"
+# 2037 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 239, _ -> begin
     Some (
-# 2071 "parser_lrerrors.mlyl"
+# 2062 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 240, _ -> begin
     Some (
-# 2076 "parser_lrerrors.mlyl"
+# 2067 "parser_lrerrors.mlyl"
       "expected 'content <type>'" 
     )
     end
   | 241, _ -> begin
     Some (
-# 2081 "parser_lrerrors.mlyl"
+# 2072 "parser_lrerrors.mlyl"
       "expected a type" 
     )
     end
   | 242, _ -> begin
     Some (
-# 2087 "parser_lrerrors.mlyl"
+# 2078 "parser_lrerrors.mlyl"
       "expected 'equals <expression>'" 
     )
     end
   | 243, _ -> begin
     Some (
-# 2091 "parser_lrerrors.mlyl"
+# 2082 "parser_lrerrors.mlyl"
       "expected the definition of another argument in the form '<var> content <type>'" 
     )
     end
   | 244, _ -> begin
     Some (
-# 2096 "parser_lrerrors.mlyl"
+# 2087 "parser_lrerrors.mlyl"
       "expected 'equals <expression>'" 
     )
     end
   | 245, _ -> begin
     Some (
-# 2100 "parser_lrerrors.mlyl"
+# 2091 "parser_lrerrors.mlyl"
       "expected a colon followed by an expression, as in '-- Case : <expression>'" 
     )
     end
   | 246, _ -> begin
     Some (
-# 2105 "parser_lrerrors.mlyl"
-      "expected the form 'with pattern <Case> of <ident> and <expr>', or a binary\n\
-       operator continuing the expression, or a keyword ending the expression and starting the next item" 
+# 2096 "parser_lrerrors.mlyl"
+      "expected the form 'with pattern <Case> of <ident> and <expr>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 247, _ -> begin
     Some (
-# 2111 "parser_lrerrors.mlyl"
+# 2101 "parser_lrerrors.mlyl"
       "expected one of\n\
        - a dot specifying the path to the given structure or enumeration ('Path.To.variable')\n\
        - a dependency specification ('depends on ...')\n\
@@ -1512,62 +1502,61 @@ let execute_syntax_error
     end
   | 248, _ -> begin
     Some (
-# 2121 "parser_lrerrors.mlyl"
-      "expected 'equals <expression>', optionally preceded by 'depends on <var> content\n\
-       <type>'" 
+# 2111 "parser_lrerrors.mlyl"
+      "expected 'equals <expression>', optionally preceded by 'depends on <var> content <type>'" 
     )
     end
   | 249, _ -> begin
     Some (
-# 2126 "parser_lrerrors.mlyl"
+# 2115 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end
   | 250, _ -> begin
     Some (
-# 2151 "parser_lrerrors.mlyl"
+# 2140 "parser_lrerrors.mlyl"
       "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" 
     )
     end
   | 251, _ -> begin
     Some (
-# 2175 "parser_lrerrors.mlyl"
+# 2164 "parser_lrerrors.mlyl"
       "expected the function application operator" 
     )
     end
   | 252, _ -> begin
     Some (
-# 2179 "parser_lrerrors.mlyl"
+# 2168 "parser_lrerrors.mlyl"
       "expected a directive, e.g. 'Include: <filename>'" 
     )
     end
   | 253, _ -> begin
     Some (
-# 2183 "parser_lrerrors.mlyl"
+# 2172 "parser_lrerrors.mlyl"
       "expected ':', then a file name or 'JORFTEXTNNNNNNNNNNNN'" 
     )
     end
   | 254, _ -> begin
     Some (
-# 2187 "parser_lrerrors.mlyl"
+# 2176 "parser_lrerrors.mlyl"
       "expected a file name or 'JORFTEXTNNNNNNNNNNNN'" 
     )
     end
   | 255, _ -> begin
     Some (
-# 2192 "parser_lrerrors.mlyl"
+# 2181 "parser_lrerrors.mlyl"
       "expected a page specification in the form '@p.<number>', or a newline" 
     )
     end
   | 256, _ -> begin
     Some (
-# 2197 "parser_lrerrors.mlyl"
+# 2186 "parser_lrerrors.mlyl"
       "expected a newline" 
     )
     end
   | 257, _ -> begin
     Some (
-# 2200 "parser_lrerrors.mlyl"
+# 2189 "parser_lrerrors.mlyl"
       "expected one of\n\
       - plain text law in markdown format\n\
       - a catala metadata block started with '```catala-metadata'\n\
@@ -1579,7 +1568,7 @@ let execute_syntax_error
     end
   | 258, _ -> begin
     Some (
-# 2210 "parser_lrerrors.mlyl"
+# 2199 "parser_lrerrors.mlyl"
       "expected an expression" 
     )
     end

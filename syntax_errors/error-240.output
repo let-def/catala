@@ -1,6 +1,5 @@
 [ERROR] Syntax error at token "year"
-Message: expected 'equals <expression>', optionally preceded by 'depends on <var> content
-<type>'
+Message: expected 'equals <expression>', optionally preceded by 'depends on <var> content <type>'
 Autosuggestion: did you mean "depends on", or maybe "equals"?
 
 Error token:

@@ -1,6 +1,5 @@
 [ERROR] Syntax error at token "state"
-Message: expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a
-binary operator to be applied on the results of the call
+Message: expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a binary operator to be applied on the results of the call
 Autosuggestion: did you mean "and", or maybe "with", or maybe "contains", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "or", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "xor", or maybe "with pattern"?
 
 Error token:
