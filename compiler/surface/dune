@@ -9,7 +9,8 @@
   zarith
   zarith_stubs_js
   dates_calc
-  shared_ast)
+  shared_ast
+  lrgrep.runtime)
  (preprocess
   (pps sedlex.ppx visitors.ppx)))
 
@@ -30,12 +31,12 @@
 
 (menhir
  (modules tokens)
- (flags --only-tokens))
+ (flags --table --inspection --only-tokens))
 
 (menhir
  (modules tokens parser)
  (merge_into parser)
- (flags --external-tokens Tokens --table --explain))
+ (flags --external-tokens Tokens --table --inspection --cmly --explain))
 
 (rule
  (target grammar.html)
