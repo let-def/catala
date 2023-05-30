@@ -1,0 +1,18 @@
+[ERROR] Syntax error at token "year"
+Message: expected either another 'state' definitions for the variable, or the next
+declaration for the scope
+Autosuggestion: did you mean "state", or maybe "declaration", or maybe "scope", or maybe "input", or maybe "output", or maybe "context", or maybe "internal"?
+
+Error token:
+┌─⯈ error-227.catala_en:2.51-2.55:
+└─┐
+2 │ declaration scope X : context x condition state x year
+  │                                                   ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-227.catala_en:2.49-2.50:
+└─┐
+2 │ declaration scope X : context x condition state x year
+  │                                                 ‾
+

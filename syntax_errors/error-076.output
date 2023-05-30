@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the structure or enumeration type of the definition under the given module.
+
+Error token:
+┌─⯈ error-076.catala_en:2.27-2.31:
+└─┐
+2 │ declaration x content X . year
+  │                           ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-076.catala_en:2.25-2.26:
+└─┐
+2 │ declaration x content X . year
+  │                         ‾
+

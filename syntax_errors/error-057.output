@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "then"
+Message: expected a semicolon or a right square bracket after the collection element
+Autosuggestion: did you mean ".", or maybe ">", or maybe "=", or maybe "}", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ";", or maybe "of", or maybe "or", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "and", or maybe "xor", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-057.catala_en:2.32-2.36:
+└─┐
+2 │ scope X under condition [ true then
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-057.catala_en:2.27-2.31:
+└─┐
+2 │ scope X under condition [ true then
+  │                           ‾‾‾‾
+

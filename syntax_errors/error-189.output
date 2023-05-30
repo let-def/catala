@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected an expression
+Autosuggestion: did you mean "for", or maybe "let", or maybe "decimal", or maybe "(", or maybe "{", or maybe "-", or maybe "if", or maybe "sum", or maybe "not", or maybe "true", or maybe "money", or maybe "match", or maybe "false", or maybe "exists", or maybe "number", or maybe "output", or maybe "maximum", or maybe "minimum"?
+
+Error token:
+┌─⯈ error-189.catala_en:2.53-2.57:
+└─┐
+2 │ scope X under condition match X with pattern -- X : year
+  │                                                     ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-189.catala_en:2.51-2.52:
+└─┐
+2 │ scope X under condition match X with pattern -- X : year
+  │                                                   ‾
+

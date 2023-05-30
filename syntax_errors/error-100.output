@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a list of field bindings of the form '-- fld : expression'
+Autosuggestion: did you mean "--"?
+
+Error token:
+┌─⯈ error-100.catala_en:2.29-2.33:
+└─┐
+2 │ scope X under condition X { year
+  │                             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-100.catala_en:2.27-2.28:
+└─┐
+2 │ scope X under condition X { year
+  │                           ‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the arguments to the scope call ('{ --var: ... }')
+Autosuggestion: did you mean "{"?
+
+Error token:
+┌─⯈ error-082.catala_en:2.42-2.46:
+└─┐
+2 │ scope X under condition output of X with year
+  │                                          ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-082.catala_en:2.37-2.41:
+└─┐
+2 │ scope X under condition output of X with year
+  │                                     ‾‾‾‾
+

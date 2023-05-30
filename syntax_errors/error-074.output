@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: the 'sum' operator must be followed by the type to be summed.
+Autosuggestion: did you mean "text", or maybe "decimal", or maybe "date", or maybe "money", or maybe "integer", or maybe "boolean", or maybe "duration"?
+
+Error token:
+┌─⯈ error-074.catala_en:2.29-2.33:
+└─┐
+2 │ scope X under condition sum year
+  │                             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-074.catala_en:2.25-2.28:
+└─┐
+2 │ scope X under condition sum year
+  │                         ‾‾‾
+

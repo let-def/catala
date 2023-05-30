@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the legislative text by which the value of the variable is fixed
+
+Error token:
+┌─⯈ error-022.catala_en:2.32-2.36:
+└─┐
+2 │ scope X : assertion fixed x by year
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-022.catala_en:2.29-2.31:
+└─┐
+2 │ scope X : assertion fixed x by year
+  │                             ‾‾
+

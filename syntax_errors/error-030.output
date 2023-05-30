@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected an expression that shoud be asserted during execution
+Autosuggestion: did you mean "for", or maybe "let", or maybe "varies", or maybe "decimal", or maybe "(", or maybe "{", or maybe "-", or maybe "if", or maybe "sum", or maybe "not", or maybe "true", or maybe "money", or maybe "match", or maybe "fixed", or maybe "false", or maybe "exists", or maybe "number", or maybe "output", or maybe "maximum", or maybe "minimum", or maybe "under condition"?
+
+Error token:
+┌─⯈ error-030.catala_en:2.21-2.25:
+└─┐
+2 │ scope X : assertion year
+  │                     ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-030.catala_en:2.11-2.20:
+└─┐
+2 │ scope X : assertion year
+  │           ‾‾‾‾‾‾‾‾‾
+

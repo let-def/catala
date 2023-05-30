@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'such that <expression>'
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "and", or maybe "such", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-104.catala_en:2.39-2.43:
+└─┐
+2 │ scope X under condition x among false year
+  │                                       ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-104.catala_en:2.33-2.38:
+└─┐
+2 │ scope X under condition x among false year
+  │                                 ‾‾‾‾‾
+

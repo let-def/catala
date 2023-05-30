@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "with"
+Message: expected a condition or a consequence for this rule
+Autosuggestion: did you mean "not", or maybe ".", or maybe "of", or maybe "state", or maybe "fulfilled", or maybe "under condition"?
+
+Error token:
+┌─⯈ error-042.catala_en:2.18-2.22:
+└─┐
+2 │ scope X : rule x with
+  │                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-042.catala_en:2.16-2.17:
+└─┐
+2 │ scope X : rule x with
+  │                ‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the definition of another argument in the form '<var> content <type>'
+
+Error token:
+┌─⯈ error-250.catala_en:2.50-2.54:
+└─┐
+2 │ declaration x content X depends on x content X , year
+  │                                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-250.catala_en:2.48-2.49:
+└─┐
+2 │ declaration x content X depends on x content X , year
+  │                                                ‾
+

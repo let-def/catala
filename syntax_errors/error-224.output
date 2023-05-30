@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a name and type for the dependency of this definition ('<ident> content <type>')
+
+Error token:
+┌─⯈ error-224.catala_en:2.56-2.60:
+└─┐
+2 │ declaration scope X : context x content X depends on ( year
+  │                                                        ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-224.catala_en:2.54-2.55:
+└─┐
+2 │ declaration scope X : context x content X depends on ( year
+  │                                                      ‾
+

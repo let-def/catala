@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the form '<var> among <expression> such that <expression>'
+Autosuggestion: did you mean "that"?
+
+Error token:
+┌─⯈ error-150.catala_en:2.40-2.44:
+└─┐
+2 │ scope X under condition x among X such year
+  │                                        ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-150.catala_en:2.35-2.39:
+└─┐
+2 │ scope X under condition x among X such year
+  │                                   ‾‾‾‾
+

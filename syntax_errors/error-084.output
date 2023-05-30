@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a variable name, following the form '-- var_name : <expression>'
+
+Error token:
+┌─⯈ error-084.catala_en:2.47-2.51:
+└─┐
+2 │ scope X under condition output of X with { -- year
+  │                                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-084.catala_en:2.44-2.46:
+└─┐
+2 │ scope X under condition output of X with { -- year
+  │                                            ‾‾
+

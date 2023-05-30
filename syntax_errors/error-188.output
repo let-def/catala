@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "xor"
+Message: expected a colon followed by an expression, as in '-- Case : <expression>'
+Autosuggestion: did you mean "of", or maybe ".", or maybe ":"?
+
+Error token:
+┌─⯈ error-188.catala_en:2.51-2.54:
+└─┐
+2 │ scope X under condition match X with pattern -- X xor
+  │                                                   ‾‾‾
+
+
+Last good token:
+┌─⯈ error-188.catala_en:2.49-2.50:
+└─┐
+2 │ scope X under condition match X with pattern -- X xor
+  │                                                 ‾
+

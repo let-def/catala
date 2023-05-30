@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected an expression defining the collection to operate on
+Autosuggestion: did you mean "for", or maybe "let", or maybe "decimal", or maybe "(", or maybe "{", or maybe "-", or maybe "if", or maybe "sum", or maybe "not", or maybe "true", or maybe "money", or maybe "match", or maybe "false", or maybe "exists", or maybe "number", or maybe "output", or maybe "maximum", or maybe "minimum"?
+
+Error token:
+┌─⯈ error-090.catala_en:2.36-2.40:
+└─┐
+2 │ scope X under condition minimum of year
+  │                                    ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-090.catala_en:2.33-2.35:
+└─┐
+2 │ scope X under condition minimum of year
+  │                                 ‾‾
+

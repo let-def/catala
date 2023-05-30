@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the name of the variable that should be fixed
+
+Error token:
+┌─⯈ error-024.catala_en:2.27-2.31:
+└─┐
+2 │ scope X : assertion fixed year
+  │                           ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-024.catala_en:2.21-2.26:
+└─┐
+2 │ scope X : assertion fixed year
+  │                     ‾‾‾‾‾
+

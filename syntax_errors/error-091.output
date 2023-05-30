@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'of' then the collection to operate on
+Autosuggestion: did you mean "of"?
+
+Error token:
+┌─⯈ error-091.catala_en:2.33-2.37:
+└─┐
+2 │ scope X under condition maximum year
+  │                                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-091.catala_en:2.25-2.32:
+└─┐
+2 │ scope X under condition maximum year
+  │                         ‾‾‾‾‾‾‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the name of your enum
+
+Error token:
+┌─⯈ error-007.catala_en:2.25-2.29:
+└─┐
+2 │ declaration enumeration year
+  │                         ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-007.catala_en:2.13-2.24:
+└─┐
+2 │ declaration enumeration year
+  │             ‾‾‾‾‾‾‾‾‾‾‾
+

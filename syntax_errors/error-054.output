@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "with"
+Message: expected a payload for the enum case constructor, or the rest of the expression (with an operator ?)
+Autosuggestion: did you mean "with pattern", or maybe ".", or maybe ">", or maybe "=", or maybe "{", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "or", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "and", or maybe "xor", or maybe "content", or maybe "contains"?
+
+Error token:
+┌─⯈ error-054.catala_en:2.37-2.41:
+└─┐
+2 │ scope X under condition INT_LITERAL with
+  │                                     ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-054.catala_en:2.25-2.36:
+└─┐
+2 │ scope X under condition INT_LITERAL with
+  │                         ‾‾‾‾‾‾‾‾‾‾‾
+

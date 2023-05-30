@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a condition or a consequence for this rule, or the rest of the variable qualified name
+Autosuggestion: did you mean "state", or maybe ".", or maybe "of", or maybe "not", or maybe "fulfilled", or maybe "under condition"?
+
+Error token:
+┌─⯈ error-043.catala_en:2.18-2.22:
+└─┐
+2 │ scope X : rule x year
+  │                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-043.catala_en:2.16-2.17:
+└─┐
+2 │ scope X : rule x year
+  │                ‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the "in" keyword for the rest of the universal test
+Autosuggestion: did you mean "among"?
+
+Error token:
+┌─⯈ error-049.catala_en:2.35-2.39:
+└─┐
+2 │ scope X under condition for all x year
+  │                                   ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-049.catala_en:2.33-2.34:
+└─┐
+2 │ scope X under condition for all x year
+  │                                 ‾
+

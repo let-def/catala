@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the form '<ident> scope <Scope_name>', or a scope variable declaration
+Autosuggestion: did you mean "scope"?
+
+Error token:
+┌─⯈ error-236.catala_en:2.25-2.29:
+└─┐
+2 │ declaration scope X : x year
+  │                         ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-236.catala_en:2.23-2.24:
+└─┐
+2 │ declaration scope X : x year
+  │                       ‾
+

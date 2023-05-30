@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected an identifier for the bound variable of the universal test
+
+Error token:
+┌─⯈ error-050.catala_en:2.33-2.37:
+└─┐
+2 │ scope X under condition for all year
+  │                                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-050.catala_en:2.29-2.32:
+└─┐
+2 │ scope X under condition for all year
+  │                             ‾‾‾
+

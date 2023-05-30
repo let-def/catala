@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the type of this struct data, introduced by the content keyword
+Autosuggestion: did you mean "content"?
+
+Error token:
+┌─⯈ error-015.catala_en:2.34-2.38:
+└─┐
+2 │ declaration structure X : data x year
+  │                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-015.catala_en:2.32-2.33:
+└─┐
+2 │ declaration structure X : data x year
+  │                                ‾
+

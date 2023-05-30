@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'equals expression' after 'let'
+Autosuggestion: did you mean "equals"?
+
+Error token:
+┌─⯈ error-095.catala_en:2.31-2.35:
+└─┐
+2 │ scope X under condition let x year
+  │                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-095.catala_en:2.29-2.30:
+└─┐
+2 │ scope X under condition let x year
+  │                             ‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected an identifier as in the form '<expression> for <ident> among <expression>'
+
+Error token:
+┌─⯈ error-114.catala_en:2.31-2.35:
+└─┐
+2 │ scope X under condition X for year
+  │                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-114.catala_en:2.27-2.30:
+└─┐
+2 │ scope X under condition X for year
+  │                           ‾‾‾
+

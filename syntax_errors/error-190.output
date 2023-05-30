@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a binary operator, or the next case in the form '-- NextCase : <expression>', or a keyword ending the match expression and starting the next item
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "--", or maybe "++", or maybe "and", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-190.catala_en:2.59-2.63:
+└─┐
+2 │ scope X under condition match X with pattern -- X : false year
+  │                                                           ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-190.catala_en:2.53-2.58:
+└─┐
+2 │ scope X under condition match X with pattern -- X : false year
+  │                                                     ‾‾‾‾‾
+

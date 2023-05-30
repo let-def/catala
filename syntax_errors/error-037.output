@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "equals"
+Message: expected a rule or a definition after the label declaration
+Autosuggestion: did you mean "rule", or maybe "exception", or maybe "definition"?
+
+Error token:
+┌─⯈ error-037.catala_en:2.19-2.25:
+└─┐
+2 │ scope X : label x equals
+  │                   ‾‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-037.catala_en:2.17-2.18:
+└─┐
+2 │ scope X : label x equals
+  │                 ‾
+

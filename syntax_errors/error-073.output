@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected an identifier (variable name, structure field or enumeration
+constructor, possibly with a submodule qualification)
+
+Error token:
+┌─⯈ error-073.catala_en:2.33-2.37:
+└─┐
+2 │ scope X under condition X . X . year
+  │                                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-073.catala_en:2.31-2.32:
+└─┐
+2 │ scope X under condition X . X . year
+  │                               ‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the name of the parameter for this dependent variable
+
+Error token:
+┌─⯈ error-041.catala_en:2.21-2.25:
+└─┐
+2 │ scope X : rule x of year
+  │                     ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-041.catala_en:2.18-2.20:
+└─┐
+2 │ scope X : rule x of year
+  │                  ‾‾
+

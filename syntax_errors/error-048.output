@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected an identifier that will designate the existential witness for the test
+
+Error token:
+┌─⯈ error-048.catala_en:2.32-2.36:
+└─┐
+2 │ scope X under condition exists year
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-048.catala_en:2.25-2.31:
+└─┐
+2 │ scope X under condition exists year
+  │                         ‾‾‾‾‾‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "false"
+Message: expected the filled keyword the this rule
+Autosuggestion: did you mean "fulfilled"?
+
+Error token:
+┌─⯈ error-040.catala_en:2.22-2.27:
+└─┐
+2 │ scope X : rule x not false
+  │                      ‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-040.catala_en:2.18-2.21:
+└─┐
+2 │ scope X : rule x not false
+  │                  ‾‾‾
+

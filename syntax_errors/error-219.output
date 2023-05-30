@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a variable name
+
+Error token:
+┌─⯈ error-219.catala_en:2.32-2.36:
+└─┐
+2 │ declaration scope X : internal year
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-219.catala_en:2.23-2.31:
+└─┐
+2 │ declaration scope X : internal year
+  │                       ‾‾‾‾‾‾‾‾
+

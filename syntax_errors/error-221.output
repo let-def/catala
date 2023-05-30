@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a type
+Autosuggestion: did you mean "text", or maybe "decimal", or maybe "date", or maybe "money", or maybe "integer", or maybe "boolean", or maybe "duration", or maybe "collection"?
+
+Error token:
+┌─⯈ error-221.catala_en:2.41-2.45:
+└─┐
+2 │ declaration scope X : context x content year
+  │                                         ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-221.catala_en:2.33-2.40:
+└─┐
+2 │ declaration scope X : context x content year
+  │                                 ‾‾‾‾‾‾‾
+

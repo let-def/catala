@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "with"
+Message: expected the defined as keyword to introduce the definition of this variable
+Autosuggestion: did you mean ".", or maybe "of", or maybe "state", or maybe "equals", or maybe "under condition"?
+
+Error token:
+┌─⯈ error-033.catala_en:2.24-2.28:
+└─┐
+2 │ scope X : definition x with
+  │                        ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-033.catala_en:2.22-2.23:
+└─┐
+2 │ scope X : definition x with
+  │                      ‾
+

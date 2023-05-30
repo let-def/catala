@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the "in" keyword to continue this existential test
+Autosuggestion: did you mean "among"?
+
+Error token:
+┌─⯈ error-047.catala_en:2.34-2.38:
+└─┐
+2 │ scope X under condition exists x year
+  │                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-047.catala_en:2.32-2.33:
+└─┐
+2 │ scope X under condition exists x year
+  │                                ‾
+

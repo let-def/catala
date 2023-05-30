@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a context item introduced by "context"
+Autosuggestion: did you mean "input", or maybe "output", or maybe "context", or maybe "internal"?
+
+Error token:
+┌─⯈ error-008.catala_en:2.23-2.27:
+└─┐
+2 │ declaration scope X : year
+  │                       ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-008.catala_en:2.21-2.22:
+└─┐
+2 │ declaration scope X : year
+  │                     ‾
+

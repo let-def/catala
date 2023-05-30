@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "under condition"
+Message: expected an indication about what this variable varies with
+Autosuggestion: did you mean "with", or maybe "."?
+
+Error token:
+┌─⯈ error-027.catala_en:2.30-2.45:
+└─┐
+2 │ scope X : assertion varies x under condition
+  │                              ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-027.catala_en:2.28-2.29:
+└─┐
+2 │ scope X : assertion varies x under condition
+  │                            ‾
+

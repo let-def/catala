@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a rule or a definition after the exception declaration
+Autosuggestion: did you mean "definition", or maybe "rule"?
+
+Error token:
+┌─⯈ error-035.catala_en:2.23-2.27:
+└─┐
+2 │ scope X : exception x year
+  │                       ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-035.catala_en:2.21-2.22:
+└─┐
+2 │ scope X : exception x year
+  │                     ‾
+

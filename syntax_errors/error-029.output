@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expecting the name of the varying variable
+
+Error token:
+┌─⯈ error-029.catala_en:2.28-2.32:
+└─┐
+2 │ scope X : assertion varies year
+  │                            ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-029.catala_en:2.21-2.27:
+└─┐
+2 │ scope X : assertion varies year
+  │                     ‾‾‾‾‾‾
+

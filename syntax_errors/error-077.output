@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'of' then the collection on which to operate
+Autosuggestion: did you mean "of"?
+
+Error token:
+┌─⯈ error-077.catala_en:2.37-2.41:
+└─┐
+2 │ scope X under condition sum boolean year
+  │                                     ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-077.catala_en:2.29-2.36:
+└─┐
+2 │ scope X under condition sum boolean year
+  │                             ‾‾‾‾‾‾‾
+

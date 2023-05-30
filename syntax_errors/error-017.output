@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected struct data or condition
+Autosuggestion: did you mean "declaration", or maybe "data", or maybe "scope", or maybe "condition"?
+
+Error token:
+┌─⯈ error-017.catala_en:2.27-2.31:
+└─┐
+2 │ declaration structure X : year
+  │                           ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-017.catala_en:2.25-2.26:
+└─┐
+2 │ declaration structure X : year
+  │                         ‾
+

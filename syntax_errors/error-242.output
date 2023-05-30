@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a variable name, following the form 'depends on (<var> content <type>, ...)'
+
+Error token:
+┌─⯈ error-242.catala_en:2.38-2.42:
+└─┐
+2 │ declaration x content X depends on ( year
+  │                                      ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-242.catala_en:2.36-2.37:
+└─┐
+2 │ declaration x content X depends on ( year
+  │                                    ‾
+

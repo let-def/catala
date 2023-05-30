@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'else <expression>'
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "and", or maybe "else", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-177.catala_en:2.41-2.45:
+└─┐
+2 │ scope X under condition if X then false year
+  │                                         ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-177.catala_en:2.35-2.40:
+└─┐
+2 │ scope X under condition if X then false year
+  │                                   ‾‾‾‾‾
+

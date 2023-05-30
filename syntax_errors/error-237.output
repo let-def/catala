@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a scope name
+
+Error token:
+┌─⯈ error-237.catala_en:2.31-2.35:
+└─┐
+2 │ declaration scope X : x scope year
+  │                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-237.catala_en:2.25-2.30:
+└─┐
+2 │ declaration scope X : x scope year
+  │                         ‾‾‾‾‾
+

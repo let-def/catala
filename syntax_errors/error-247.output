@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'content <type>'
+Autosuggestion: did you mean "content"?
+
+Error token:
+┌─⯈ error-247.catala_en:2.38-2.42:
+└─┐
+2 │ declaration x content X depends on x year
+  │                                      ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-247.catala_en:2.36-2.37:
+└─┐
+2 │ declaration x content X depends on x year
+  │                                    ‾
+

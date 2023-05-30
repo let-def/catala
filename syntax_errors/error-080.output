@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a scope to be applied
+
+Error token:
+┌─⯈ error-080.catala_en:2.35-2.39:
+└─┐
+2 │ scope X under condition output of year
+  │                                   ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-080.catala_en:2.32-2.34:
+└─┐
+2 │ scope X under condition output of year
+  │                                ‾‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a pattern to match against
+
+Error token:
+┌─⯈ error-107.catala_en:2.40-2.44:
+└─┐
+2 │ scope X under condition X with pattern year
+  │                                        ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-107.catala_en:2.27-2.39:
+└─┐
+2 │ scope X under condition X with pattern year
+  │                           ‾‾‾‾‾‾‾‾‾‾‾‾
+

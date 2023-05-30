@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "with"
+Message: expected the legislative text by which the value of the variable is fixed
+Autosuggestion: did you mean ".", or maybe "by"?
+
+Error token:
+┌─⯈ error-023.catala_en:2.29-2.33:
+└─┐
+2 │ scope X : assertion fixed x with
+  │                             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-023.catala_en:2.27-2.28:
+└─┐
+2 │ scope X : assertion fixed x with
+  │                           ‾
+

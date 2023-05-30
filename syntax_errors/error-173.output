@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'we have <expression>'
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe "we have", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "and", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-173.catala_en:2.47-2.51:
+└─┐
+2 │ scope X under condition for all x among false year
+  │                                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-173.catala_en:2.41-2.46:
+└─┐
+2 │ scope X under condition for all x among false year
+  │                                         ‾‾‾‾‾
+

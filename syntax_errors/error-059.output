@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the name of the constructor for the enum case in the pattern matching
+Autosuggestion: did you mean "anything"?
+
+Error token:
+┌─⯈ error-059.catala_en:2.52-2.56:
+└─┐
+2 │ scope X under condition match true with pattern -- year
+  │                                                    ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-059.catala_en:2.49-2.51:
+└─┐
+2 │ scope X under condition match true with pattern -- year
+  │                                                 ‾‾
+

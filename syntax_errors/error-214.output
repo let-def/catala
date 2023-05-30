@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'equals' then an expression defining the rule
+Autosuggestion: did you mean "not", or maybe "fulfilled", or maybe "under condition"?
+
+Error token:
+┌─⯈ error-214.catala_en:2.26-2.30:
+└─┐
+2 │ scope X : rule x state x year
+  │                          ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-214.catala_en:2.24-2.25:
+└─┐
+2 │ scope X : rule x state x year
+  │                        ‾
+

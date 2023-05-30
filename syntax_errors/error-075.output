@@ -1,0 +1,20 @@
+[ERROR] Syntax error at token "year"
+Message: expected one of
+- a dot specifying the path to the given structure or enumeration ('Path.To.variable')
+- a dependency specification ('depends on ...')
+- the body of the declaration ('equals ...')
+Autosuggestion: did you mean "depends on", or maybe ".", or maybe "equals"?
+
+Error token:
+┌─⯈ error-075.catala_en:2.25-2.29:
+└─┐
+2 │ declaration x content X year
+  │                         ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-075.catala_en:2.23-2.24:
+└─┐
+2 │ declaration x content X year
+  │                       ‾
+

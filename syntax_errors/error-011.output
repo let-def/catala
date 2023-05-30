@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the type of the parameter of this struct data function
+Autosuggestion: did you mean "("?
+
+Error token:
+┌─⯈ error-011.catala_en:2.50-2.54:
+└─┐
+2 │ declaration structure X : condition x depends on year
+  │                                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-011.catala_en:2.39-2.49:
+└─┐
+2 │ declaration structure X : condition x depends on year
+  │                                       ‾‾‾‾‾‾‾‾‾‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the "all" keyword to mean the "for all" construction of the universal test
+Autosuggestion: did you mean "all"?
+
+Error token:
+┌─⯈ error-051.catala_en:2.29-2.33:
+└─┐
+2 │ scope X under condition for year
+  │                             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-051.catala_en:2.25-2.28:
+└─┐
+2 │ scope X under condition for year
+  │                         ‾‾‾
+

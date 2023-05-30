@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a 'fldname : expression' binding
+
+Error token:
+┌─⯈ error-101.catala_en:2.32-2.36:
+└─┐
+2 │ scope X under condition X { -- year
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-101.catala_en:2.29-2.31:
+└─┐
+2 │ scope X under condition X { -- year
+  │                             ‾‾
+

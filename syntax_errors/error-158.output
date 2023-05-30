@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the form 'or if collection empty then <expression>'
+Autosuggestion: did you mean "then"?
+
+Error token:
+┌─⯈ error-158.catala_en:2.81-2.85:
+└─┐
+2 │ scope X under condition x among X such that X is minimum or if collection empty year
+  │                                                                                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-158.catala_en:2.75-2.80:
+└─┐
+2 │ scope X under condition x among X such that X is minimum or if collection empty year
+  │                                                                           ‾‾‾‾‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the next item in the scope, or the start of a new top-level decleration
+Autosuggestion: did you mean "definition", or maybe "declaration", or maybe "date", or maybe "rule", or maybe "scope", or maybe "label", or maybe "exception", or maybe "assertion"?
+
+Error token:
+┌─⯈ error-211.catala_en:2.28-2.32:
+└─┐
+2 │ scope X : rule x fulfilled year
+  │                            ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-211.catala_en:2.18-2.27:
+└─┐
+2 │ scope X : rule x fulfilled year
+  │                  ‾‾‾‾‾‾‾‾‾
+

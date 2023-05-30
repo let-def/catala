@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "state"
+Message: expected a closing paren, or a comma followed by another argument declaration (', <ident> content <type>')
+Autosuggestion: did you mean ".", or maybe ")"?
+
+Error token:
+┌─⯈ error-232.catala_en:2.68-2.73:
+└─┐
+2 │ declaration scope X : context x condition depends on ( x content X state
+  │                                                                    ‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-232.catala_en:2.66-2.67:
+└─┐
+2 │ declaration scope X : context x condition depends on ( x content X state
+  │                                                                  ‾
+

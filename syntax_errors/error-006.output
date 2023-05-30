@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a colon
+Autosuggestion: did you mean ":"?
+
+Error token:
+┌─⯈ error-006.catala_en:2.27-2.31:
+└─┐
+2 │ declaration enumeration X year
+  │                           ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-006.catala_en:2.25-2.26:
+└─┐
+2 │ declaration enumeration X year
+  │                         ‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected an identifier defining the name of the state
+
+Error token:
+┌─⯈ error-213.catala_en:2.30-2.34:
+└─┐
+2 │ scope X : definition x state year
+  │                              ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-213.catala_en:2.24-2.29:
+└─┐
+2 │ scope X : definition x state year
+  │                        ‾‾‾‾‾
+

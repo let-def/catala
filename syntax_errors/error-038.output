@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the name of the label
+
+Error token:
+┌─⯈ error-038.catala_en:2.17-2.21:
+└─┐
+2 │ scope X : label year
+  │                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-038.catala_en:2.11-2.16:
+└─┐
+2 │ scope X : label year
+  │           ‾‾‾‾‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'fulfilled' or 'not fulfilled'
+Autosuggestion: did you mean "equals"?
+
+Error token:
+┌─⯈ error-216.catala_en:2.54-2.58:
+└─┐
+2 │ scope X : definition x under condition X consequence year
+  │                                                      ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-216.catala_en:2.42-2.53:
+└─┐
+2 │ scope X : definition x under condition X consequence year
+  │                                          ‾‾‾‾‾‾‾‾‾‾‾
+

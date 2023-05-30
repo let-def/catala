@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "+"
+Message: expected an expression
+Autosuggestion: did you mean "(", or maybe "{", or maybe "-", or maybe "if", or maybe "sum", or maybe "for", or maybe "let", or maybe "not", or maybe "true", or maybe "money", or maybe "match", or maybe "false", or maybe "exists", or maybe "number", or maybe "output", or maybe "decimal", or maybe "maximum", or maybe "minimum"?
+
+Error token:
+┌─⯈ error-126.catala_en:2.25-2.26:
+└─┐
+2 │ scope X under condition +1.0 . X year
+  │                         ‾
+
+
+Last good token:
+┌─⯈ error-126.catala_en:2.9-2.24:
+└─┐
+2 │ scope X under condition +1.0 . X year
+  │         ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+

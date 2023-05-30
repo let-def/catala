@@ -1,0 +1,18 @@
+[ERROR] Syntax error at token "with"
+Message: expected the form 'with pattern <Case> of <ident> and <expr>', or a binary
+operator continuing the expression, or a keyword ending the expression and starting the next item
+Autosuggestion: did you mean "with pattern", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "or", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "and", or maybe "xor", or maybe "contains"?
+
+Error token:
+┌─⯈ error-108.catala_en:2.42-2.46:
+└─┐
+2 │ scope X under condition X with pattern X with
+  │                                          ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-108.catala_en:2.40-2.41:
+└─┐
+2 │ scope X under condition X with pattern X with
+  │                                        ‾
+

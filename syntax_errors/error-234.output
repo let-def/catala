@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "equals"
+Message: expected the next definition in scope, or a comma followed by another argument declaration (', <ident> content <type>')
+Autosuggestion: did you mean "state", or maybe "declaration", or maybe ".", or maybe "scope", or maybe "input", or maybe "output", or maybe "context", or maybe "internal"?
+
+Error token:
+┌─⯈ error-234.catala_en:2.66-2.72:
+└─┐
+2 │ declaration scope X : context x condition depends on x content X equals
+  │                                                                  ‾‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-234.catala_en:2.64-2.65:
+└─┐
+2 │ declaration scope X : context x condition depends on x content X equals
+  │                                                                ‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a scope use item: a rule, definition or assertion
+Autosuggestion: did you mean "definition", or maybe "date", or maybe "rule", or maybe "label", or maybe "exception", or maybe "assertion"?
+
+Error token:
+┌─⯈ error-045.catala_en:2.11-2.15:
+└─┐
+2 │ scope X : year
+  │           ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-045.catala_en:2.9-2.10:
+└─┐
+2 │ scope X : year
+  │         ‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected a struct field or a sub-scope context item after the dot
+
+Error token:
+┌─⯈ error-039.catala_en:2.20-2.24:
+└─┐
+2 │ scope X : rule x . year
+  │                    ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-039.catala_en:2.18-2.19:
+└─┐
+2 │ scope X : rule x . year
+  │                  ‾
+

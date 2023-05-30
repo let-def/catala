@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "then"
+Message: expected a new scope use item
+Autosuggestion: did you mean ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe "of", or maybe "or", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "and", or maybe "xor", or maybe "date", or maybe "rule", or maybe "scope", or maybe "label", or maybe "contains", or maybe "exception", or maybe "assertion", or maybe "definition", or maybe "declaration", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-021.catala_en:2.28-2.32:
+└─┐
+2 │ scope X : assertion number then
+  │                            ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-021.catala_en:2.21-2.27:
+└─┐
+2 │ scope X : assertion number then
+  │                     ‾‾‾‾‾‾
+

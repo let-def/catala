@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the form 'we have <expression>'
+Autosuggestion: did you mean "for", or maybe "let", or maybe "decimal", or maybe "(", or maybe "{", or maybe "-", or maybe "if", or maybe "sum", or maybe "not", or maybe "true", or maybe "money", or maybe "match", or maybe "false", or maybe "exists", or maybe "number", or maybe "output", or maybe "maximum", or maybe "minimum"?
+
+Error token:
+┌─⯈ error-174.catala_en:2.51-2.55:
+└─┐
+2 │ scope X under condition for all x among X we have year
+  │                                                   ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-174.catala_en:2.43-2.50:
+└─┐
+2 │ scope X under condition for all x among X we have year
+  │                                           ‾‾‾‾‾‾‾
+

@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected an ident, as in the form 'with pattern <Case> of <ident> and <expr>'
+
+Error token:
+┌─⯈ error-109.catala_en:2.45-2.49:
+└─┐
+2 │ scope X under condition X with pattern X of year
+  │                                             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-109.catala_en:2.42-2.44:
+└─┐
+2 │ scope X under condition X with pattern X of year
+  │                                          ‾‾
+

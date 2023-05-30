@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the form 'such that <expression>'
+Autosuggestion: did you mean "that"?
+
+Error token:
+┌─⯈ error-118.catala_en:2.46-2.50:
+└─┐
+2 │ scope X under condition X for x among X such year
+  │                                              ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-118.catala_en:2.41-2.45:
+└─┐
+2 │ scope X under condition X for x among X such year
+  │                                         ‾‾‾‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a content type
+Autosuggestion: did you mean "text", or maybe "decimal", or maybe "date", or maybe "money", or maybe "integer", or maybe "boolean", or maybe "duration", or maybe "collection"?
+
+Error token:
+┌─⯈ error-002.catala_en:2.42-2.46:
+└─┐
+2 │ declaration enumeration X : -- X content year
+  │                                          ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-002.catala_en:2.34-2.41:
+└─┐
+2 │ declaration enumeration X : -- X content year
+  │                                  ‾‾‾‾‾‾‾
+

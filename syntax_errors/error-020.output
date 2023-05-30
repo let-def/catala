@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the kind of the declaration (struct, scope or enum)
+Autosuggestion: did you mean "scope", or maybe "structure", or maybe "enumeration"?
+
+Error token:
+┌─⯈ error-020.catala_en:2.13-2.17:
+└─┐
+2 │ declaration year
+  │             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-020.catala_en:2.1-2.12:
+└─┐
+2 │ declaration year
+  │ ‾‾‾‾‾‾‾‾‾‾‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the type of this struct data
+Autosuggestion: did you mean "text", or maybe "decimal", or maybe "date", or maybe "money", or maybe "integer", or maybe "boolean", or maybe "duration", or maybe "collection"?
+
+Error token:
+┌─⯈ error-014.catala_en:2.42-2.46:
+└─┐
+2 │ declaration structure X : data x content year
+  │                                          ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-014.catala_en:2.34-2.41:
+└─┐
+2 │ declaration structure X : data x content year
+  │                                  ‾‾‾‾‾‾‾
+

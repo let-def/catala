@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'in', as in the form '<expression> for <ident> among <expression>'
+Autosuggestion: did you mean "among"?
+
+Error token:
+┌─⯈ error-115.catala_en:2.33-2.37:
+└─┐
+2 │ scope X under condition X for x year
+  │                                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-115.catala_en:2.31-2.32:
+└─┐
+2 │ scope X under condition X for x year
+  │                               ‾
+

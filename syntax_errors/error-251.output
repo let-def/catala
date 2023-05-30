@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token ")"
+Message: expected 'equals <expression>'
+Autosuggestion: did you mean ".", or maybe "equals"?
+
+Error token:
+┌─⯈ error-251.catala_en:2.48-2.49:
+└─┐
+2 │ declaration x content X depends on x content X )
+  │                                                ‾
+
+
+Last good token:
+┌─⯈ error-251.catala_en:2.46-2.47:
+└─┐
+2 │ declaration x content X depends on x content X )
+  │                                              ‾
+

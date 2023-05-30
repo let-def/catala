@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'var equals expression' after 'let'
+
+Error token:
+┌─⯈ error-094.catala_en:2.29-2.33:
+└─┐
+2 │ scope X under condition let year
+  │                             ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-094.catala_en:2.25-2.28:
+└─┐
+2 │ scope X under condition let year
+  │                         ‾‾‾
+

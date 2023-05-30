@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'of' then a scope to be applied
+Autosuggestion: did you mean "of"?
+
+Error token:
+┌─⯈ error-079.catala_en:2.32-2.36:
+└─┐
+2 │ scope X under condition output year
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-079.catala_en:2.25-2.31:
+└─┐
+2 │ scope X under condition output year
+  │                         ‾‾‾‾‾‾
+

@@ -1,0 +1,18 @@
+[ERROR] Syntax error at token "state"
+Message: expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a
+binary operator to be applied on the results of the call
+Autosuggestion: did you mean "and", or maybe "with", or maybe "contains", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "or", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "xor", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-081.catala_en:2.37-2.42:
+└─┐
+2 │ scope X under condition output of X state
+  │                                     ‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-081.catala_en:2.35-2.36:
+└─┐
+2 │ scope X under condition output of X state
+  │                                   ‾
+

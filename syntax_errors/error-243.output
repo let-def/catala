@@ -1,0 +1,18 @@
+[ERROR] Syntax error at token "equals"
+Message: expected ')', or ',' followed by another argument declaration in the form '<var>
+content <type>'
+Autosuggestion: did you mean ".", or maybe ")"?
+
+Error token:
+┌─⯈ error-243.catala_en:2.50-2.56:
+└─┐
+2 │ declaration x content X depends on ( x content X equals
+  │                                                  ‾‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-243.catala_en:2.48-2.49:
+└─┐
+2 │ declaration x content X depends on ( x content X equals
+  │                                                ‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a payload for your enum case, or another case or declaration
+Autosuggestion: did you mean "declaration", or maybe "--", or maybe "scope", or maybe "content"?
+
+Error token:
+┌─⯈ error-003.catala_en:2.34-2.38:
+└─┐
+2 │ declaration enumeration X : -- X year
+  │                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-003.catala_en:2.32-2.33:
+└─┐
+2 │ declaration enumeration X : -- X year
+  │                                ‾
+

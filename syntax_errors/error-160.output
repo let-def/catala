@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "and", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-160.catala_en:2.92-2.96:
+└─┐
+2 │ scope X under condition x among X such that X is minimum or if collection empty then false year
+  │                                                                                            ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-160.catala_en:2.86-2.91:
+└─┐
+2 │ scope X under condition x among X such that X is minimum or if collection empty then false year
+  │                                                                                      ‾‾‾‾‾
+

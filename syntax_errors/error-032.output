@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "decreasing"
+Message: expected an expression for defining this function, introduced by the defined as keyword ; or a comma followed by another argument
+Autosuggestion: did you mean "equals", or maybe "under condition", or maybe "state"?
+
+Error token:
+┌─⯈ error-032.catala_en:2.29-2.39:
+└─┐
+2 │ scope X : definition x of x decreasing
+  │                             ‾‾‾‾‾‾‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-032.catala_en:2.27-2.28:
+└─┐
+2 │ scope X : definition x of x decreasing
+  │                           ‾
+

@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected either 'fulfilled' or 'not fulfilled'
+Autosuggestion: did you mean "not", or maybe "fulfilled"?
+
+Error token:
+┌─⯈ error-212.catala_en:2.48-2.52:
+└─┐
+2 │ scope X : rule x under condition X consequence year
+  │                                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-212.catala_en:2.36-2.47:
+└─┐
+2 │ scope X : rule x under condition X consequence year
+  │                                    ‾‾‾‾‾‾‾‾‾‾‾
+

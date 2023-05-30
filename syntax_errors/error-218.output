@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a variable name, optionally preceded by 'output'
+Autosuggestion: did you mean "output"?
+
+Error token:
+┌─⯈ error-218.catala_en:2.31-2.35:
+└─┐
+2 │ declaration scope X : context year
+  │                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-218.catala_en:2.23-2.30:
+└─┐
+2 │ declaration scope X : context year
+  │                       ‾‾‾‾‾‾‾
+

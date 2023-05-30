@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a scope use condition or the content of this scope use
+Autosuggestion: did you mean ":", or maybe "under condition"?
+
+Error token:
+┌─⯈ error-064.catala_en:2.9-2.13:
+└─┐
+2 │ scope X year
+  │         ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-064.catala_en:2.7-2.8:
+└─┐
+2 │ scope X year
+  │       ‾
+

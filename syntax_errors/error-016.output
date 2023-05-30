@@ -1,0 +1,16 @@
+[ERROR] Syntax error at token "year"
+Message: expected the name of this struct data
+
+Error token:
+┌─⯈ error-016.catala_en:2.32-2.36:
+└─┐
+2 │ declaration structure X : data year
+  │                                ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-016.catala_en:2.27-2.31:
+└─┐
+2 │ declaration structure X : data year
+  │                           ‾‾‾‾
+

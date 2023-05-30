@@ -1,0 +1,19 @@
+[ERROR] Syntax error at token "year"
+Message: expected some declaration or scope use inside this code block
+Autosuggestion: did you mean "declaration", or maybe "scope"?
+
+Error token:
+┌─⯈ error-066.catala_en:2.1-2.5:
+└─┐
+2 │ year
+  │ ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-066.catala_en:1.1-2.1:
+└─┐
+1 │ ```catala
+  │ ‾‾‾‾‾‾‾‾‾
+2 │ year
+  │
+

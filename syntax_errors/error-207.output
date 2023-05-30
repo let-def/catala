@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected another field in the form '-- <var>: <expression>', or a closing '}' brace
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe ".", or maybe ">", or maybe "=", or maybe "}", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "--", or maybe "++", or maybe "and", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-207.catala_en:2.42-2.46:
+└─┐
+2 │ scope X under condition X { -- x : false year
+  │                                          ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-207.catala_en:2.36-2.41:
+└─┐
+2 │ scope X under condition X { -- x : false year
+  │                                    ‾‾‾‾‾
+

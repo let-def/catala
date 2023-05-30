@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a colon, following the form '-- var_name : <expression>'
+Autosuggestion: did you mean ":"?
+
+Error token:
+┌─⯈ error-085.catala_en:2.34-2.38:
+└─┐
+2 │ scope X under condition X { -- x year
+  │                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-085.catala_en:2.32-2.33:
+└─┐
+2 │ scope X under condition X { -- x year
+  │                                ‾
+

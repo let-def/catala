@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'maximum' or 'minimum'
+Autosuggestion: did you mean "maximum", or maybe "minimum"?
+
+Error token:
+┌─⯈ error-153.catala_en:2.50-2.54:
+└─┐
+2 │ scope X under condition x among X such that X is year
+  │                                                  ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-153.catala_en:2.47-2.49:
+└─┐
+2 │ scope X under condition x among X such that X is year
+  │                                               ‾‾
+

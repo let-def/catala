@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected the function application operator
+Autosuggestion: did you mean "or", or maybe "for", or maybe "xor", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe ":", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "and", or maybe "contains", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-062.catala_en:2.30-2.34:
+└─┐
+2 │ scope X under condition true year
+  │                              ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-062.catala_en:2.25-2.29:
+└─┐
+2 │ scope X under condition true year
+  │                         ‾‾‾‾
+

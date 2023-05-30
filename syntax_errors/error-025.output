@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "true"
+Message: expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item
+Autosuggestion: did you mean "rule", or maybe "or", or maybe "date", or maybe "label", or maybe "exception", or maybe "assertion", or maybe ".", or maybe ">", or maybe "=", or maybe "+", or maybe "-", or maybe "*", or maybe "/", or maybe "of", or maybe "<=", or maybe ">=", or maybe "!=", or maybe "++", or maybe "for", or maybe "and", or maybe "xor", or maybe "scope", or maybe "among", or maybe "contains", or maybe "definition", or maybe "declaration", or maybe "with pattern"?
+
+Error token:
+┌─⯈ error-025.catala_en:2.37-2.41:
+└─┐
+2 │ scope X : assertion under_condition true then
+  │                                     ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-025.catala_en:2.21-2.36:
+└─┐
+2 │ scope X : assertion under_condition true then
+  │                     ‾‾‾‾‾‾‾‾‾‾‾‾‾‾‾
+

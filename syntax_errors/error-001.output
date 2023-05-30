@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected another enum case, or a new declaration or scope use
+Autosuggestion: did you mean "declaration", or maybe "--", or maybe "scope"?
+
+Error token:
+┌─⯈ error-001.catala_en:2.47-2.51:
+└─┐
+2 │ declaration enumeration X : -- X content text year
+  │                                               ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-001.catala_en:2.42-2.46:
+└─┐
+2 │ declaration enumeration X : -- X content text year
+  │                                          ‾‾‾‾
+

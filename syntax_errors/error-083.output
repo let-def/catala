@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected a list of variable-value bindings in the form `-- var_name : <expression>`
+Autosuggestion: did you mean "}", or maybe "--"?
+
+Error token:
+┌─⯈ error-083.catala_en:2.44-2.48:
+└─┐
+2 │ scope X under condition output of X with { year
+  │                                            ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-083.catala_en:2.42-2.43:
+└─┐
+2 │ scope X under condition output of X with { year
+  │                                          ‾
+

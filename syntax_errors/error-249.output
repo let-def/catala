@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected 'equals <expression>'
+Autosuggestion: did you mean "equals"?
+
+Error token:
+┌─⯈ error-249.catala_en:2.54-2.58:
+└─┐
+2 │ declaration x content X depends on x content boolean year
+  │                                                      ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-249.catala_en:2.46-2.53:
+└─┐
+2 │ declaration x content X depends on x content boolean year
+  │                                              ‾‾‾‾‾‾‾
+

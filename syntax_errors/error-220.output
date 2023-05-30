@@ -1,0 +1,17 @@
+[ERROR] Syntax error at token "year"
+Message: expected either 'condition', or 'content' followed by the expected variable type
+Autosuggestion: did you mean "content", or maybe "condition"?
+
+Error token:
+┌─⯈ error-220.catala_en:2.33-2.37:
+└─┐
+2 │ declaration scope X : context x year
+  │                                 ‾‾‾‾
+
+
+Last good token:
+┌─⯈ error-220.catala_en:2.31-2.32:
+└─┐
+2 │ declaration scope X : context x year
+  │                               ‾
+
