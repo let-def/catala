@@ -356,8 +356,7 @@ rule syntax_error = parse error
   | UIDENT; DOT
     / expression: UIDENT DOT . qlident
     / quident: UIDENT DOT . quident
-    { "expected an identifier (variable name, structure field or enumeration\n\
-       constructor, possibly with a submodule qualification)" }
+    { "expected an identifier (variable name, structure field or enumeration constructor, possibly with a submodule qualification)" }
 
   | UIDENT
     / qlident: UIDENT . DOT qlident
@@ -371,8 +370,7 @@ rule syntax_error = parse error
   | UIDENT; DOT
     / qlident: UIDENT DOT . qlident
     / quident: UIDENT DOT . quident
-    { "expected an identifier (variable name, structure field or enumeration\n\
-       constructor, possibly with a submodule qualification)" }
+    { "expected an identifier (variable name, structure field or enumeration constructor, possibly with a submodule qualification)" }
 
   | SUM
     / expression: SUM . primitive_typ OF expression
@@ -400,8 +398,7 @@ rule syntax_error = parse error
 
   | OUTPUT; OF;
     [quident / expression: OUTPUT OF quident . option(scope_call_args)]
-    { "expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a\n\
-       binary operator to be applied on the results of the call" }
+    { "expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a binary operator to be applied on the results of the call" }
 
   | WITH_V
     / option(scope_call_args): WITH_V . LBRACE list(preceded(ALT,struct_content_field)) RBRACE
@@ -690,8 +687,7 @@ rule syntax_error = parse error
 
   | expression; FOR; lident; AMONG; expression; SUCH; THAT
     / expression: expression FOR lident AMONG expression SUCH THAT . expression
-    { "expected an expression defining the condition to apply to the elements of the\n\
-       collection" }
+    { "expected an expression defining the condition to apply to the elements of the collection" }
 
   | expression; FOR; lident; AMONG; expression; SUCH; THAT;
     [expression
@@ -1166,8 +1162,7 @@ rule syntax_error = parse error
 
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION; EMPTY; THEN
     / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN . expression
-    { "expected an expression, following the form 'or if collection empty then\n\
-       <expression>'" }
+    { "expected an expression, following the form 'or if collection empty then <expression>'" }
 
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION; EMPTY; THEN;
     [expression
@@ -1698,8 +1693,7 @@ rule syntax_error = parse error
 
   | MINIMUM; OF; expression; OR; IF; COLLECTION; EMPTY; THEN
     / expression: MINIMUM OF expression OR IF COLLECTION EMPTY THEN . expression
-    { "expected an expression, following the form 'or if collection empty then\n\
-       <expression>'" }
+    { "expected an expression, following the form 'or if collection empty then <expression>'" }
 
   | IF
     / expression: IF . expression THEN expression ELSE expression
@@ -1939,8 +1933,7 @@ rule syntax_error = parse error
     / scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
     / scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
     / scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . list(state)]
-    { "expected either 'state' definitions for the variable, or the next declaration\n\
-       for the scope" }
+    { "expected either 'state' definitions for the variable, or the next declaration for the scope" }
 
   | scope_decl_item_attribute; lident; CONTENT; typ_data; DEPENDS
     / scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data DEPENDS . separated_nonempty_list(COMMA,var_content) list(state)
@@ -1961,8 +1954,7 @@ rule syntax_error = parse error
     { "expected a 'state' declaration for the preceding declaration, or the next declaration for the scope" }
 
   | [state / list(state): state . list(state)]
-    { "expected either another 'state' definitions for the variable, or the next\n\
-       declaration for the scope" }
+    { "expected either another 'state' definitions for the variable, or the next declaration for the scope" }
 
   | scope_decl_item_attribute; lident; CONTENT; typ_data; DEPENDS;
     [separated_nonempty_list(COMMA,var_content)
@@ -2034,8 +2026,7 @@ rule syntax_error = parse error
   | DECLARATION; lident; CONTENT; typ_data; DEPENDS; LPAREN;
     [separated_nonempty_list(COMMA,var_content)
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) . RPAREN DEFINED_AS expression]
-    { "expected ')', or ',' followed by another argument declaration in the form '<var>\n\
-       content <type>'" }
+    { "expected ')', or ',' followed by another argument declaration in the form '<var> content <type>'" }
 
   | DECLARATION; lident; CONTENT; typ_data; DEPENDS; LPAREN; separated_nonempty_list(COMMA,var_content); RPAREN
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN . DEFINED_AS expression
@@ -2102,8 +2093,7 @@ rule syntax_error = parse error
   | [quident
     / constructor_binding: quident . OF lident
     / constructor_binding: quident .]
-    { "expected the form 'with pattern <Case> of <ident> and <expr>', or a binary\n\
-       operator continuing the expression, or a keyword ending the expression and starting the next item" }
+    { "expected the form 'with pattern <Case> of <ident> and <expr>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | UIDENT
     / quident: UIDENT . DOT quident
@@ -2118,8 +2108,7 @@ rule syntax_error = parse error
     / code_item: DECLARATION lident CONTENT typ_data . DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
     / code_item: DECLARATION lident CONTENT typ_data . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
     / code_item: DECLARATION lident CONTENT typ_data . DEFINED_AS expression]
-    { "expected 'equals <expression>', optionally preceded by 'depends on <var> content\n\
-       <type>'" }
+    { "expected 'equals <expression>', optionally preceded by 'depends on <var> content <type>'" }
 
   | DECLARATION; lident; CONTENT; typ_data; DEPENDS; separated_nonempty_list(COMMA,var_content); DEFINED_AS
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS . expression
