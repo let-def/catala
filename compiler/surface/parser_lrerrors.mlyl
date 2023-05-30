@@ -1144,22 +1144,6 @@ rule syntax_error = parse error
     / expression: lident AMONG expression SUCH THAT expression IS MINIMUM . OR IF COLLECTION EMPTY THEN expression
     { "expected 'or if collection empty then <expression>'" }
 
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR
-    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR . IF COLLECTION EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF
-    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF . COLLECTION EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION
-    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION . EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION; EMPTY
-    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY . THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION; EMPTY; THEN
     / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
@@ -1192,22 +1176,6 @@ rule syntax_error = parse error
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM
     / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM . OR IF COLLECTION EMPTY THEN expression
     { "expected 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR
-    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR . IF COLLECTION EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF
-    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF . COLLECTION EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION
-    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION . EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION; EMPTY
-    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY . THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
 
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION; EMPTY; THEN
     / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN . expression
@@ -1601,24 +1569,6 @@ rule syntax_error = parse error
     / expression: expression . FOR lident AMONG expression SUCH THAT expression]
     { "expected 'or if collection empty then <expression>'" }
 
-  | MAXIMUM; OF; expression; OR
-    / expression: MAXIMUM OF expression OR . IF COLLECTION EMPTY THEN expression
-    / expression: expression OR . expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | MAXIMUM; OF; expression; OR; IF
-    / expression: MAXIMUM OF expression OR IF . COLLECTION EMPTY THEN expression
-    / expression: IF . expression THEN expression ELSE expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | MAXIMUM; OF; expression; OR; IF; COLLECTION
-    / expression: MAXIMUM OF expression OR IF COLLECTION . EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
-  | MAXIMUM; OF; expression; OR; IF; COLLECTION; EMPTY
-    / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY . THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
   | MAXIMUM; OF; expression; OR; IF; COLLECTION; EMPTY; THEN
     / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
@@ -1673,20 +1623,40 @@ rule syntax_error = parse error
     / expression: expression . FOR lident AMONG expression SUCH THAT expression]
     { "expected 'or if collection empty then <expression>'" }
 
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR
+    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR . IF COLLECTION EMPTY THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF
+    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF . COLLECTION EMPTY THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION
+    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION . EMPTY THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION; EMPTY
+    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY . THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR
+    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR . IF COLLECTION EMPTY THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF
+    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF . COLLECTION EMPTY THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION
+    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION . EMPTY THEN expression
+  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION; EMPTY
+    / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY . THEN expression
+  | MAXIMUM; OF; expression; OR
+    / expression: MAXIMUM OF expression OR . IF COLLECTION EMPTY THEN expression
+    / expression: expression OR . expression
+  | MAXIMUM; OF; expression; OR; IF
+    / expression: MAXIMUM OF expression OR IF . COLLECTION EMPTY THEN expression
+    / expression: IF . expression THEN expression ELSE expression
+  | MAXIMUM; OF; expression; OR; IF; COLLECTION
+    / expression: MAXIMUM OF expression OR IF COLLECTION . EMPTY THEN expression
+  | MAXIMUM; OF; expression; OR; IF; COLLECTION; EMPTY
+    / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY . THEN expression
   | MINIMUM; OF; expression; OR
     / expression: MINIMUM OF expression OR . IF COLLECTION EMPTY THEN expression
     / expression: expression OR . expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
   | MINIMUM; OF; expression; OR; IF
     / expression: MINIMUM OF expression OR IF . COLLECTION EMPTY THEN expression
     / expression: IF . expression THEN expression ELSE expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
   | MINIMUM; OF; expression; OR; IF; COLLECTION
     / expression: MINIMUM OF expression OR IF COLLECTION . EMPTY THEN expression
-    { "expected the form 'or if collection empty then <expression>'" }
-
   | MINIMUM; OF; expression; OR; IF; COLLECTION; EMPTY
     / expression: MINIMUM OF expression OR IF COLLECTION EMPTY . THEN expression
     { "expected the form 'or if collection empty then <expression>'" }
