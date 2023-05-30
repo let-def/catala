@@ -123,14 +123,14 @@ let raise_parser_error
     msg
 
 module ParserAux (LocalisedLexer : Lexer_common.LocalisedLexer) = struct
-  include Parser.Make (LocalisedLexer)
-  module I = MenhirInterpreter
+  module Parser = Parser.Make (LocalisedLexer)
+  include Parser
+  module I = Parser.MenhirInterpreter
+  module Errors = Parser_lrerrors.Make (LocalisedLexer) (Parser)
+  module Errors_I = Lrgrep_runtime.Interpreter (Errors.Table_syntax_error) (I)
 
-  (** Returns the state number from the Menhir environment *)
-  let state (env : 'semantic_value I.env) : int =
-    match Lazy.force (I.stack env) with
-    | MenhirLib.General.Nil -> 0
-    | MenhirLib.General.Cons (Element (s, _, _, _), _) -> I.number s
+  type 'semantic_value last_input_needed =
+    'semantic_value I.env * (Tokens.token * Lexing.position * Lexing.position)
 
   (** Usage: [fail lexbuf env token_list last_input_needed]
 
@@ -143,13 +143,13 @@ module ParserAux (LocalisedLexer : Lexer_common.LocalisedLexer) = struct
       point *)
   let fail
       (lexbuf : lexbuf)
-      (env : 'semantic_value I.env)
+      (_env : 'semantic_value I.env)
       (token_list : (string * Tokens.token) list)
-      (last_input_needed : 'semantic_value I.env option) : 'a =
+      (last_input_needed : 'semantic_value last_input_needed option) : 'a =
     let wrong_token = Utf8.lexeme lexbuf in
     let acceptable_tokens, last_positions =
       match last_input_needed with
-      | Some last_input_needed ->
+      | Some (last_input_needed, _) ->
         ( List.filter
             (fun (_, t) ->
               I.acceptable
@@ -191,10 +191,18 @@ module ParserAux (LocalisedLexer : Lexer_common.LocalisedLexer) = struct
     in
     (* The parser has suspended itself because of a syntax error. Stop. *)
     let custom_menhir_message =
-      match Parser_errors.message (state env) with
-      | exception Not_found ->
+      match last_input_needed with
+      | None -> assert false
+      | Some (env', token) -> (
+        match Errors_I.run env' with
+        | [] -> None
+        | m :: _ -> Errors.execute_syntax_error m token)
+    in
+    let custom_menhir_message =
+      match custom_menhir_message with
+      | None ->
         "Message: " ^ Cli.with_style syntax_hints_style "%s" "unexpected token"
-      | msg ->
+      | Some msg ->
         "Message: "
         ^ Cli.with_style syntax_hints_style "%s"
             (String.trim (String.uncapitalize_ascii msg))
@@ -216,13 +224,13 @@ module ParserAux (LocalisedLexer : Lexer_common.LocalisedLexer) = struct
       (next_token : unit -> Tokens.token * Lexing.position * Lexing.position)
       (token_list : (string * Tokens.token) list)
       (lexbuf : lexbuf)
-      (last_input_needed : 'semantic_value I.env option)
+      (last_input_needed : 'semantic_value last_input_needed option)
       (checkpoint : 'semantic_value I.checkpoint) : Ast.source_file =
     match checkpoint with
     | I.InputNeeded env ->
       let token = next_token () in
       let checkpoint = I.offer checkpoint token in
-      loop next_token token_list lexbuf (Some env) checkpoint
+      loop next_token token_list lexbuf (Some (env, token)) checkpoint
     | I.Shifting _ | I.AboutToReduce _ ->
       let checkpoint = I.resume checkpoint in
       loop next_token token_list lexbuf last_input_needed checkpoint
