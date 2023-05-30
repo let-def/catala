@@ -43,6 +43,12 @@
  (action
   (run obelisk html -i -o %{target} %{dep:parser.mly})))
 
+(rule
+ (targets parser_lrerrors.ml)
+ (deps parser.cmly parser_lrerrors.mlyl)
+ (action
+  (run lrgrep parser_lrerrors.mlyl -g parser.cmly -o parser_lrerrors.ml)))
+
 (documentation
  (package catala)
  (mld_files surface))
