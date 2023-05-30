@@ -1,0 +1,259 @@
+```catala declaration enumeration X : -- X content text year
+```catala declaration enumeration X : -- X content year
+```catala declaration enumeration X : -- X year
+```catala declaration enumeration X : -- year
+```catala declaration enumeration X : year
+```catala declaration enumeration X year
+```catala declaration enumeration year
+```catala declaration scope X : year
+```catala declaration scope X year
+```catala declaration scope year
+```catala declaration structure X : condition x depends on year
+```catala declaration structure X : condition x year
+```catala declaration structure X : condition year
+```catala declaration structure X : data x content year
+```catala declaration structure X : data x year
+```catala declaration structure X : data year
+```catala declaration structure X : year
+```catala declaration structure X year
+```catala declaration structure year
+```catala declaration year
+```catala scope X : assertion number then
+```catala scope X : assertion fixed x by year
+```catala scope X : assertion fixed x with
+```catala scope X : assertion fixed year
+```catala scope X : assertion under_condition true then
+```catala scope X : assertion under_condition year
+```catala scope X : assertion varies x under condition
+```catala scope X : assertion varies x with year
+```catala scope X : assertion varies year
+```catala scope X : assertion year
+```catala scope X : definition x equals year
+```catala scope X : definition x of x decreasing
+```catala scope X : definition x with
+```catala scope X : definition year
+```catala scope X : exception x year
+```catala scope X : exception year
+```catala scope X : label x equals
+```catala scope X : label year
+```catala scope X : rule x . year
+```catala scope X : rule x not false
+```catala scope X : rule x of year
+```catala scope X : rule x with
+```catala scope X : rule x year
+```catala scope X : rule year
+```catala scope X : year
+```catala scope X under condition X year
+```catala scope X under condition exists x year
+```catala scope X under condition exists year
+```catala scope X under condition for all x year
+```catala scope X under condition for all year
+```catala scope X under condition for year
+```catala scope X under condition if true ;
+```catala scope X under condition if year
+```catala scope X under condition INT_LITERAL with
+```catala scope X under condition ( true then
+```catala scope X under condition ( year
+```catala scope X under condition [ true then
+```catala scope X under condition [ year
+```catala scope X under condition match true with pattern -- year
+```catala scope X under condition match true with pattern year
+```catala scope X under condition match year
+```catala scope X under condition true year
+```catala scope X under condition year
+```catala scope X year
+```catala scope year
+```catala year
+LAW_TEXT year
+year
+```catala-metadata year
+```catala-metadata LAW_TEXT LAW_HEADING
+```catala scope X under condition X . year
+```catala scope X under condition X . X year
+```catala scope X under condition X . X . year
+```catala scope X under condition sum year
+```catala declaration x content X year
+```catala declaration x content X . year
+```catala scope X under condition sum boolean year
+```catala scope X under condition sum X of year
+```catala scope X under condition output year
+```catala scope X under condition output of year
+```catala scope X under condition output of X state
+```catala scope X under condition output of X with year
+```catala scope X under condition output of X with { year
+```catala scope X under condition output of X with { -- year
+```catala scope X under condition X { -- x year
+```catala scope X under condition X { -- x : year
+```catala scope X under condition not year
+```catala scope X under condition - year
+```catala scope X under condition minimum year
+```catala scope X under condition minimum of year
+```catala scope X under condition maximum year
+```catala scope X under condition maximum of year
+```catala scope X under condition x year
+```catala scope X under condition let year
+```catala scope X under condition let x year
+```catala scope X under condition let x equals year
+```catala scope X under condition for all x among year
+```catala scope X under condition exists x among year
+```catala scope X under condition +1.0 with
+```catala scope X under condition X { year
+```catala scope X under condition X { -- year
+```catala scope X under condition X content year
+```catala scope X under condition x among year
+```catala scope X under condition x among false year
+```catala scope X under condition X xor year
+```catala scope X under condition X xor false year
+```catala scope X under condition X with pattern year
+```catala scope X under condition X with pattern X with
+```catala scope X under condition X with pattern X of year
+```catala scope X under condition X ++ year
+```catala scope X under condition X ++ false year
+```catala scope X under condition X of year
+```catala scope X under condition X of false year
+```catala scope X under condition X for year
+```catala scope X under condition X for x year
+```catala scope X under condition X for x among year
+```catala scope X under condition X for x among false year
+```catala scope X under condition X for x among X such year
+```catala scope X under condition X for x among X such that year
+```catala scope X under condition X for x among X such that false year
+```catala scope X under condition X + year
+```catala scope X under condition X + false year
+```catala scope X under condition X * year
+```catala scope X under condition X * false year
+```catala scope X under condition +1.0 . year
+```catala scope X under condition +1.0 . X year
+```catala scope X under condition +1.0 . X . year
+```catala scope X under condition X contains year
+```catala scope X under condition X contains false year
+```catala scope X under condition X / year
+```catala scope X under condition X / false year
+```catala scope X under condition X or year
+```catala scope X under condition X or false year
+```catala scope X under condition X != year
+```catala scope X under condition X != false year
+```catala scope X under condition X - year
+```catala scope X under condition X - false year
+```catala scope X under condition X <= year
+```catala scope X under condition X <= false year
+```catala scope X under condition X < year
+```catala scope X under condition X < false year
+```catala scope X under condition X >= year
+```catala scope X under condition X >= false year
+```catala scope X under condition X > year
+```catala scope X under condition X > false year
+```catala scope X under condition X = year
+```catala scope X under condition X = false year
+```catala scope X under condition X and year
+```catala scope X under condition X and false year
+```catala scope X under condition x among X such year
+```catala scope X under condition x among X such that year
+```catala scope X under condition x among X such that false year
+```catala scope X under condition x among X such that X is year
+```catala scope X under condition x among X such that X is minimum year
+```catala scope X under condition x among X such that X is minimum or year
+```catala scope X under condition x among X such that X is minimum or if year
+```catala scope X under condition x among X such that X is minimum or if collection year
+```catala scope X under condition x among X such that X is minimum or if collection empty year
+```catala scope X under condition x among X such that X is minimum or if collection empty then year
+```catala scope X under condition x among X such that X is minimum or if collection empty then false year
+```catala scope X under condition x among X such that X is maximum year
+```catala scope X under condition x among X such that X is maximum or year
+```catala scope X under condition x among X such that X is maximum or if year
+```catala scope X under condition x among X such that X is maximum or if collection year
+```catala scope X under condition x among X such that X is maximum or if collection empty year
+```catala scope X under condition x among X such that X is maximum or if collection empty then year
+```catala scope X under condition x among X such that X is maximum or if collection empty then false year
+```catala scope X under condition X content false year
+```catala scope X under condition exists x among false year
+```catala scope X under condition exists x among X such year
+```catala scope X under condition exists x among X such that year
+```catala scope X under condition exists x among X such that false year
+```catala scope X under condition for all x among false year
+```catala scope X under condition for all x among X we have year
+```catala scope X under condition for all x among X we have false year
+```catala scope X under condition if X then year
+```catala scope X under condition if X then false year
+```catala scope X under condition if X then X else year
+```catala scope X under condition if X then X else false year
+```catala scope X under condition [ X ; year
+```catala scope X under condition let x equals false year
+```catala scope X under condition let x equals X in year
+```catala scope X under condition let x equals X in false year
+```catala scope X under condition match false year
+```catala scope X under condition match X with pattern -- anything year
+```catala scope X under condition match X with pattern -- anything : year
+```catala scope X under condition match X with pattern -- anything : false year
+```catala scope X under condition match X with pattern -- X xor
+```catala scope X under condition match X with pattern -- X : year
+```catala scope X under condition match X with pattern -- X : false year
+```catala scope X under condition maximum of false year
+```catala scope X under condition maximum of X or year
+```catala scope X under condition maximum of X or if year
+```catala scope X under condition maximum of X or if collection year
+```catala scope X under condition maximum of X or if collection empty year
+```catala scope X under condition maximum of X or if collection empty then year
+```catala scope X under condition maximum of X or if collection empty then false year
+```catala scope X under condition minimum of false year
+```catala scope X under condition minimum of X or year
+```catala scope X under condition minimum of X or if year
+```catala scope X under condition minimum of X or if collection year
+```catala scope X under condition minimum of X or if collection empty year
+```catala scope X under condition minimum of X or if collection empty then year
+```catala scope X under condition minimum of X or if collection empty then false year
+```catala scope X under condition - false year
+```catala scope X under condition not false year
+```catala scope X under condition X { -- x : false year
+```catala scope X under condition sum X of false year
+```catala scope X : assertion varies x with false year
+```catala scope X : assertion under condition X consequence year
+```catala scope X : rule x fulfilled year
+```catala scope X : rule x under condition X consequence year
+```catala scope X : definition x state year
+```catala scope X : rule x state x year
+```catala scope X : definition x state x year
+```catala scope X : definition x under condition X consequence year
+```catala scope X : definition x equals false year
+```catala declaration scope X : context year
+```catala declaration scope X : internal year
+```catala declaration scope X : context x year
+```catala declaration scope X : context x content year
+```catala declaration scope X : context x content boolean year
+```catala declaration scope X : context x content X depends on year
+```catala declaration scope X : context x content X depends on ( year
+```catala declaration scope X : context x content X depends on ( x content X state
+```catala declaration scope X : context x content X depends on ( x content X ) year
+```catala declaration scope X : context x condition state x year
+```catala declaration scope X : context x content X depends on x content X equals
+```catala declaration scope X : context x condition year
+```catala declaration scope X : context x condition depends on year
+```catala declaration scope X : context x condition depends on ( year
+```catala declaration scope X : context x condition depends on ( x content X state
+```catala declaration scope X : context x condition depends on ( x content X ) year
+```catala declaration scope X : context x condition depends on x content X equals
+```catala declaration scope X : x scope X year
+```catala declaration scope X : x year
+```catala declaration scope X : x scope year
+```catala declaration x year
+```catala declaration x content year
+```catala declaration x content boolean year
+```catala declaration x content X depends on year
+```catala declaration x content X depends on ( year
+```catala declaration x content X depends on ( x content X equals
+```catala declaration x content X depends on ( x content X ) year
+```catala declaration x content X depends on ( x content X ) equals year
+```catala declaration x content X depends on ( x content X ) equals false year
+```catala declaration x content X depends on x year
+```catala declaration x content X depends on x content year
+```catala declaration x content X depends on x content boolean year
+```catala declaration x content X depends on x content X , year
+```catala declaration x content X depends on x content X )
+```catala declaration x content X depends on x content X equals year
+```catala declaration x content X depends on x content X equals false year
+> year
+> Include year
+> Include : year
+> Include : foo year
+> Include : foo @p.0 year
+LAW_HEADING year
