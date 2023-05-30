@@ -1,5 +1,5 @@
 [ERROR] Syntax error at token "with"
-Message: expected a condition or a consequence for this rule
+Message: expected a condition or a consequence for this rule, or the rest of the variable qualified name
 Autosuggestion: did you mean "not", or maybe ".", or maybe "of", or maybe "state", or maybe "fulfilled", or maybe "under condition"?
 
 Error token:
