@@ -376,15 +376,6 @@ rule syntax_error = parse error
     / expression: MAXIMUM OF . expression OR IF COLLECTION EMPTY THEN expression
     { "expected an expression defining the collection to operate on" }
 
-  | LIDENT
-    / expression: LIDENT .
-    / lident: LIDENT .
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | option(condition_consequence);
-    [expression / assertion: option(condition_consequence) expression .]
-    { "expected a new scope use item" }
-
   | LET
     / expression: LET . lident DEFINED_AS expression IN expression
     { "expected 'var equals expression' after 'let'" }
@@ -435,10 +426,6 @@ rule syntax_error = parse error
     / expression: expression XOR . expression
     { "expected a boolean expression" }
 
-  | expression; XOR;
-    [expression / expression: expression XOR expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | expression; WITH
     / expression: expression WITH . constructor_binding
     { "expected a pattern to match against" }
@@ -451,18 +438,9 @@ rule syntax_error = parse error
     / expression: expression PLUSPLUS . expression
     { "expected a collection expression" }
 
-  | expression; PLUSPLUS;
-    [expression / expression: expression PLUSPLUS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | expression; OF
     / expression: expression OF . funcall_args
     { "expected an expression specifying the function argument" }
-
-  | [expression
-     / funcall_args: expression .
-     / funcall_args: expression . COMMA funcall_args]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | expression; FOR
     / expression: expression FOR . lident AMONG expression
@@ -494,18 +472,6 @@ rule syntax_error = parse error
     / expression: expression FOR lident AMONG expression SUCH THAT . expression
     { "expected an expression defining the condition to apply to the elements of the collection" }
 
-  | expression; FOR; lident; AMONG; expression; SUCH; THAT;
-    [expression / expression: expression FOR lident AMONG expression SUCH THAT expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; PLUS;
-    [expression / expression: expression PLUS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; MULT;
-    [expression / expression: expression MULT expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | expression; DOT
     / expression: expression DOT . qlident
     { "expected a structure field or sub-scope variable name" }
@@ -518,49 +484,6 @@ rule syntax_error = parse error
     / qlident: UIDENT DOT . qlident
     { "expected a module path, as in 'Module.Submodule.variable'" }
 
-  | expression; CONTAINS; [expression / expression: expression CONTAINS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; DIV;
-    [expression / expression: expression DIV expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; OR;
-    [expression / expression: expression OR expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; NOT_EQUAL;
-    [expression / expression: expression NOT_EQUAL expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; MINUS;
-    [expression / expression: expression MINUS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; LESSER_EQUAL;
-    [expression / expression: expression LESSER_EQUAL expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; LESSER;
-    [expression / expression: expression LESSER expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; GREATER_EQUAL;
-    [expression / expression: expression GREATER_EQUAL expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; GREATER;
-    [expression / expression: expression GREATER expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; EQUAL;
-    [expression / expression: expression EQUAL expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; AND;
-    [expression / expression: expression AND expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | lident; AMONG; expression; SUCH
     / expression: lident AMONG expression SUCH . THAT expression
     / expression: lident AMONG expression SUCH . THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
@@ -572,10 +495,6 @@ rule syntax_error = parse error
     / expression: lident AMONG expression SUCH THAT . expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
     / expression: lident AMONG expression SUCH THAT . expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
     { "expected the form '<var> among <expression> such that <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT;
-    [expression / expression: lident AMONG expression SUCH THAT expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | lident; AMONG; expression; SUCH; THAT; expression; IS
     / expression: lident AMONG expression SUCH THAT expression IS . MAXIMUM OR IF COLLECTION EMPTY THEN expression
@@ -590,11 +509,6 @@ rule syntax_error = parse error
     / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
 
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MINIMUM; OR; IF; COLLECTION; EMPTY; THEN;
-    [expression
-    / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM
     / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM . OR IF COLLECTION EMPTY THEN expression
     { "expected 'or if collection empty then <expression>'" }
@@ -602,15 +516,6 @@ rule syntax_error = parse error
   | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION; EMPTY; THEN
     / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
-
-  | lident; AMONG; expression; SUCH; THAT; expression; IS; MAXIMUM; OR; IF; COLLECTION; EMPTY; THEN;
-    [expression
-     / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | CONTENT;
-    [expression / option(preceded(CONTENT,expression)): CONTENT expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | EXISTS; lident; AMONG;
     [expression / expression: EXISTS lident AMONG expression . SUCH THAT expression]
@@ -624,10 +529,6 @@ rule syntax_error = parse error
     / expression: EXISTS lident AMONG expression SUCH THAT . expression
     { "expected an expression, following the form 'such that <expression>'" }
 
-  | EXISTS; lident; AMONG; expression; SUCH; THAT;
-    [expression / expression: EXISTS lident AMONG expression SUCH THAT expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | FOR; ALL; lident; AMONG;
     [expression / expression: FOR ALL lident AMONG expression . WE_HAVE expression]
     { "expected 'we have <expression>'" }
@@ -635,10 +536,6 @@ rule syntax_error = parse error
   | FOR; ALL; lident; AMONG; expression; WE_HAVE
     / expression: FOR ALL lident AMONG expression WE_HAVE . expression
     { "expected the form 'we have <expression>'" }
-
-  | FOR; ALL; lident; AMONG; expression; WE_HAVE;
-    [expression / expression: FOR ALL lident AMONG expression WE_HAVE expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | IF; expression; THEN
     / expression: IF expression THEN . expression ELSE expression
@@ -648,17 +545,9 @@ rule syntax_error = parse error
     [expression / expression: IF expression THEN expression . ELSE expression]
     { "expected 'else <expression>'" }
 
-  | IF; expression; THEN; expression; ELSE;
-    [expression / expression: IF expression THEN expression ELSE expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | LET; lident; DEFINED_AS;
     [expression / expression: LET lident DEFINED_AS expression . IN expression]
     { "expected the keyword 'in'" }
-
-  | LET; lident; DEFINED_AS; expression; IN;
-    [expression / expression: LET lident DEFINED_AS expression IN expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | MATCH;
     [expression / expression: MATCH expression . WITH nonempty_list(addpos(preceded(ALT,match_arm)))]
@@ -667,10 +556,6 @@ rule syntax_error = parse error
   | WILDCARD
     / match_arm: WILDCARD . COLON expression
     { "expected ':' followed by an expression" }
-
-  | WILDCARD; COLON;
-    [expression / match_arm: WILDCARD COLON expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | constructor_binding; COLON;
     [expression / match_arm: constructor_binding COLON expression .]
@@ -683,10 +568,6 @@ rule syntax_error = parse error
   | MAXIMUM; OF; expression; OR; IF; COLLECTION; EMPTY; THEN
     / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
-
-  | MAXIMUM; OF; expression; OR; IF; COLLECTION; EMPTY; THEN;
-    [expression / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY THEN expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | MINIMUM; OF;
     [expression / expression: MINIMUM OF expression . OR IF COLLECTION EMPTY THEN expression]
@@ -738,27 +619,9 @@ rule syntax_error = parse error
     / expression: IF . expression THEN expression ELSE expression
     { "expected an expression for the test of the conditional" }
 
-  | MINIMUM; OF; expression; OR; IF; COLLECTION; EMPTY; THEN;
-    [expression / expression: MINIMUM OF expression OR IF COLLECTION EMPTY THEN expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | MINUS; [expression / expression: MINUS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | NOT; [expression / expression: NOT expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | lident; COLON;
     [expression / struct_content_field: lident COLON expression .]
     { "expected another field in the form '-- <var>: <expression>', or a closing '}' brace" }
-
-  | SUM; primitive_typ; OF;
-    [expression / expression: SUM primitive_typ OF expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | VARIES; separated_nonempty_list(DOT,addpos(LIDENT)); WITH_V;
-    [expression / assertion: VARIES separated_nonempty_list(DOT,addpos(LIDENT)) WITH_V expression . option(addpos(variation_type))]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | [option(condition_consequence) / assertion: option(condition_consequence) . expression]
     { "expected either 'fulfilled' or 'not fulfilled'" }
@@ -783,14 +646,6 @@ rule syntax_error = parse error
   | option(label); option(exception_to); DEFINITION; separated_nonempty_list(DOT,addpos(LIDENT)); option(addpos(definition_parameters)); option(state); [ option(condition_consequence)
     / definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) . DEFINED_AS expression ]
     { "expected 'fulfilled' or 'not fulfilled'" }
-
-  | option(label); option(exception_to); DEFINITION; separated_nonempty_list(DOT,addpos(LIDENT)); option(addpos(definition_parameters)); option(state); option(condition_consequence); DEFINED_AS;
-    [expression / definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) DEFINED_AS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | [scope_item / nonempty_list(scope_item): scope_item .
-                / nonempty_list(scope_item): scope_item . nonempty_list(scope_item)]
-    { "expected the next item in the scope, or the start of a new top-level decleration" }
 
   | [scope_decl_item_attribute_input
     / scope_decl_item_attribute: scope_decl_item_attribute_input . scope_decl_item_attribute_output ]
@@ -925,10 +780,6 @@ rule syntax_error = parse error
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN . DEFINED_AS expression
     { "expected 'equals <expression>'" }
 
-  | DECLARATION; lident; CONTENT; typ_data; DEPENDS; LPAREN; separated_nonempty_list(COMMA,var_content); RPAREN; DEFINED_AS;
-    [expression / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
   | [lident
     / separated_nonempty_list(COMMA,var_content): lident . CONTENT typ_data
     / separated_nonempty_list(COMMA,var_content): lident . CONTENT typ_data COMMA separated_nonempty_list(COMMA,var_content)]
@@ -977,14 +828,6 @@ rule syntax_error = parse error
     / code_item: DECLARATION lident CONTENT typ_data . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
     / code_item: DECLARATION lident CONTENT typ_data . DEFINED_AS expression]
     { "expected 'equals <expression>', optionally preceded by 'depends on <var> content <type>'" }
-
-  | DECLARATION; lident; CONTENT; typ_data; DEPENDS; separated_nonempty_list(COMMA,var_content); DEFINED_AS;
-    [expression / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression .]
-    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | UNDER_CONDITION;
-    [expression / option(preceded(UNDER_CONDITION,expression)): UNDER_CONDITION expression .]
-    { "expected the function application operator" }
 
   | BEGIN_DIRECTIVE
     / source_file_item: BEGIN_DIRECTIVE . LAW_INCLUDE COLON nonempty_list(DIRECTIVE_ARG) option(AT_PAGE) END_DIRECTIVE
@@ -1040,3 +883,55 @@ rule syntax_error = parse error
   | DEFINED_AS    / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS . expression
   | DEFINED_AS    / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS . expression
     { "expected an expression" }
+
+  | [expression / expression: expression XOR expression .]
+  | [expression / expression: expression PLUSPLUS expression .]
+  | [expression / funcall_args: expression . / funcall_args: expression . COMMA funcall_args]
+  | [expression / expression: expression FOR lident AMONG expression SUCH THAT expression .]
+  | [expression / expression: expression PLUS expression .]
+  | [expression / expression: expression MULT expression .]
+  | [expression / expression: expression CONTAINS expression .]
+  | [expression / expression: expression DIV expression .]
+  | [expression / expression: expression OR expression .]
+  | [expression / expression: expression NOT_EQUAL expression .]
+  | [expression / expression: expression MINUS expression .]
+  | [expression / expression: expression LESSER_EQUAL expression .]
+  | [expression / expression: expression LESSER expression .]
+  | [expression / expression: expression GREATER_EQUAL expression .]
+  | [expression / expression: expression GREATER expression .]
+  | [expression / expression: expression EQUAL expression .]
+  | [expression / expression: expression AND expression .]
+  | [expression / expression: lident AMONG expression SUCH THAT expression .]
+  | [expression / expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression .]
+  | [expression / expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression .]
+  | [expression / option(preceded(CONTENT,expression)): CONTENT expression .]
+  | [expression / expression: EXISTS lident AMONG expression SUCH THAT expression .]
+  | [expression / expression: FOR ALL lident AMONG expression WE_HAVE expression .]
+  | [expression / expression: IF expression THEN expression ELSE expression .]
+  | [expression / expression: LET lident DEFINED_AS expression IN expression .]
+  | [expression / match_arm: WILDCARD COLON expression .]
+  | [expression / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY THEN expression .]
+  | [expression / expression: MINIMUM OF expression OR IF COLLECTION EMPTY THEN expression .]
+  | [expression / expression: MINUS expression .]
+  | [expression / expression: NOT expression .]
+  | [expression / expression: SUM primitive_typ OF expression .]
+  | [expression / assertion: VARIES separated_nonempty_list(DOT,addpos(LIDENT)) WITH_V expression . option(addpos(variation_type))]
+  | [expression / definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) DEFINED_AS expression .]
+  | [expression / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression .]
+  | [expression / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression .]
+  | LIDENT
+    / expression: LIDENT .
+    / lident: LIDENT .
+    { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
+
+  | UNDER_CONDITION;
+    [expression / option(preceded(UNDER_CONDITION,expression)): UNDER_CONDITION expression .]
+    { "expected the function application operator" }
+
+  | option(condition_consequence);
+    [expression / assertion: option(condition_consequence) expression .]
+    { "expected a new scope use item" }
+
+  | [scope_item / nonempty_list(scope_item): scope_item .
+                / nonempty_list(scope_item): scope_item . nonempty_list(scope_item)]
+    { "expected the next item in the scope, or the start of a new top-level decleration" }
