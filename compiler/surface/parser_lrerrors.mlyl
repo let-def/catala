@@ -652,12 +652,6 @@ rule syntax_error = parse error
     / scope_decl_item: scope_decl_item_attribute lident . CONDITION list(state)]
     { "expected either 'condition', or 'content' followed by the expected variable type" }
 
-  | scope_decl_item_attribute; lident; CONTENT
-    / scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-    / scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-    / scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data list(state)
-    { "expected a type" }
-
   | scope_decl_item_attribute; lident; CONTENT;
     [typ_data
     / scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
@@ -738,12 +732,6 @@ rule syntax_error = parse error
     / code_item: DECLARATION lident . CONTENT typ_data DEFINED_AS expression]
     { "expected 'content <type>'" }
 
-  | DECLARATION; lident; CONTENT
-    / code_item: DECLARATION lident CONTENT . typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
-    / code_item: DECLARATION lident CONTENT . typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
-    / code_item: DECLARATION lident CONTENT . typ_data DEFINED_AS expression
-    { "expected a type" }
-
   | DECLARATION; lident; CONTENT; typ_data; DEPENDS
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS . separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS . LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
@@ -765,10 +753,6 @@ rule syntax_error = parse error
   | [lident
     / separated_nonempty_list(COMMA,var_content): lident . CONTENT typ_data COMMA separated_nonempty_list(COMMA,var_content)]
     { "expected 'content <type>'" }
-
-  | lident; CONTENT
-    / separated_nonempty_list(COMMA,var_content): lident CONTENT . typ_data COMMA separated_nonempty_list(COMMA,var_content)
-    { "expected a type" }
 
   | lident; CONTENT;
     [typ_data
@@ -832,6 +816,18 @@ rule syntax_error = parse error
       - a catala test block started with '```catala-test-inline' or '```catala-test'\n\
       - a directive, e.g. '> Include: <filename>'"
     }
+
+  | scope_decl_item_attribute; lident; CONTENT
+    / scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
+    / scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
+    / scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data list(state)
+  | DECLARATION; lident; CONTENT
+    / code_item: DECLARATION lident CONTENT . typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
+    / code_item: DECLARATION lident CONTENT . typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
+    / code_item: DECLARATION lident CONTENT . typ_data DEFINED_AS expression
+  | lident; CONTENT
+    / separated_nonempty_list(COMMA,var_content): lident CONTENT . typ_data COMMA separated_nonempty_list(COMMA,var_content)
+    { "expected a type" }
 
   | PLUS          / expression: expression PLUS . expression
   | MULT          / expression: expression MULT . expression
