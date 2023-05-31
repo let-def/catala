@@ -267,7 +267,7 @@ rule syntax_error = parse error
   | /expression: NOT . expression
     { "expected a boolean expression to apply 'not' on" }
 
-  | MINUS /expression: MINUS . expression
+  | MINUS /expression: ... MINUS . expression ...
     { "expected a numeric expression to apply '-' on" }
 
   | /expression: MINIMUM . OF expression OR IF COLLECTION EMPTY THEN expression
