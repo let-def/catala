@@ -441,6 +441,7 @@ rule syntax_error = parse error
 
   | [_ /assertion: option(condition_consequence) . expression]
   | [_ / \rule: option(label) option(addpos(exception_to)) RULE rule_expr option(state) option(condition_consequence) . rule_consequence]
+  | [_ /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) . DEFINED_AS expression]
     { "expected either 'fulfilled' or 'not fulfilled'" }
 
   | /state: STATE . lident
@@ -449,9 +450,6 @@ rule syntax_error = parse error
   | [_ / \rule: option(label) option(addpos(exception_to)) RULE rule_expr option(state) . option(condition_consequence) rule_consequence]
   | [_ /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) . option(condition_consequence) DEFINED_AS expression]
     { "expected 'equals' then an expression defining the rule" }
-
-  | [_ /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) . DEFINED_AS expression]
-    { "expected 'fulfilled' or 'not fulfilled'" }
 
   | [_ /scope_decl_item_attribute: scope_decl_item_attribute_input . scope_decl_item_attribute_output]
     { "expected a variable name, optionally preceded by 'output'" }

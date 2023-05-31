@@ -1,5 +1,5 @@
 [ERROR] Syntax error at token "year"
-Message: expected 'fulfilled' or 'not fulfilled'
+Message: expected either 'fulfilled' or 'not fulfilled'
 Autosuggestion: did you mean "equals"?
 
 Error token:
