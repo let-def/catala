@@ -33,8 +33,7 @@ rule syntax_error = parse error
     /struct_scope: struct_scope_base DEPENDS . LPAREN separated_nonempty_list(COMMA,var_content) RPAREN
     { "expected the type of the parameter of this struct data function" }
 
-  | [_ /struct_scope: struct_scope_base . DEPENDS separated_nonempty_list(COMMA,var_content)
-       /struct_scope: struct_scope_base . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN
+  | [_ /struct_scope: struct_scope_base . DEPENDS ...
        /struct_scope: struct_scope_base . ]
     { "expected a new struct data, or another declaration or scope use" }
 
@@ -59,12 +58,10 @@ rule syntax_error = parse error
   | /code_item: DECLARATION STRUCT . UIDENT COLON list(addpos(struct_scope))
     { "expected the struct name" }
 
-  | /code_item: DECLARATION . STRUCT UIDENT COLON list(addpos(struct_scope))
-    /code_item: DECLARATION . SCOPE UIDENT COLON nonempty_list(addpos(scope_decl_item))
-    /code_item: DECLARATION . ENUM UIDENT COLON list(addpos(enum_decl_line))
-    /code_item: DECLARATION . lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
-    /code_item: DECLARATION . lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
-    /code_item: DECLARATION . lident CONTENT typ_data DEFINED_AS expression
+  | /code_item: DECLARATION . STRUCT ...
+    /code_item: DECLARATION . SCOPE ...
+    /code_item: DECLARATION . ENUM ...
+    /code_item: DECLARATION . lident CONTENT ...
     { "expected the kind of the declaration (struct, scope or enum)" }
 
   | /assertion: FIXED separated_nonempty_list(DOT,addpos(LIDENT)) BY . lident
@@ -82,32 +79,28 @@ rule syntax_error = parse error
   | /condition_consequence: UNDER_CONDITION . expression CONSEQUENCE
     { "expected an expression for this condition" }
 
-  | [_ /assertion: VARIES separated_nonempty_list(DOT,addpos(LIDENT)) . WITH_V expression option(addpos(variation_type))]
+  | [_ /assertion: VARIES _ . WITH_V expression _]
     { "expected an indication about what this variable varies with" }
 
-  | /assertion: VARIES separated_nonempty_list(DOT,addpos(LIDENT)) WITH_V . expression option(addpos(variation_type))
+  | /assertion: VARIES _ WITH_V . expression _
     { "the variable varies with an expression that was expected here" }
 
-  | /assertion: VARIES . separated_nonempty_list(DOT,addpos(LIDENT)) WITH_V expression option(addpos(variation_type))
+  | /assertion: VARIES . _ WITH_V expression _
     { "expecting the name of the varying variable" }
 
   | /scope_item: ASSERTION . assertion
     { "expected an expression that shoud be asserted during execution" }
 
-  | /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT))
-                  option(addpos(definition_parameters)) option(state) option(condition_consequence)
-                  DEFINED_AS . expression
+  | /definition: _ _ DEFINITION _ _ _ _ DEFINED_AS . expression
     { "expected an expression for the definition" }
 
-  | [_ /separated_nonempty_list(COMMA,lident): lident . COMMA separated_nonempty_list(COMMA,lident)]
+  | [_ /separated_nonempty_list(COMMA,lident): lident . COMMA _]
     { "expected an expression for defining this function, introduced by the defined as keyword ; or a comma followed by another argument" }
 
-  | [_ /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) .
-                    option(addpos(definition_parameters)) option(state) option(condition_consequence) DEFINED_AS expression]
+  | [_ /definition: _ _ DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) . option(addpos(definition_parameters)) _ _ DEFINED_AS expression]
     { "expected the defined as keyword to introduce the definition of this variable" }
 
-  | /definition: option(label) option(exception_to) DEFINITION . separated_nonempty_list(DOT,addpos(LIDENT))
-                  option(addpos(definition_parameters)) option(state) option(condition_consequence) DEFINED_AS expression
+  | /definition: _ _ DEFINITION . separated_nonempty_list(DOT,addpos(LIDENT)) _ _ _ DEFINED_AS expression
     { "expected the name of the variable you want to define" }
 
   | /exception_to: EXCEPTION . option(lident)
@@ -117,14 +110,14 @@ rule syntax_error = parse error
        /option(exception_to): exception_to .]
     {"expected a rule or a definition after the exception declaration" }
 
-  | [_ /definition: option(label) . option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) DEFINED_AS expression
-       / \rule: option(label) . option(addpos(exception_to)) RULE rule_expr option(state) option(condition_consequence) rule_consequence]
+  | [_ / definition: option(label) . option(exception_to) DEFINITION ...
+       / \rule: option(label) . option(addpos(exception_to)) RULE ...]
     { "expected a rule or a definition after the label declaration" }
 
   | /label: LABEL . lident
     { "expected the name of the label" }
 
-  | /separated_nonempty_list(DOT,addpos(LIDENT)): LIDENT DOT . separated_nonempty_list(DOT,addpos(LIDENT))
+  | /separated_nonempty_list(DOT,addpos(LIDENT)): LIDENT DOT . _
     { "expected a struct field or a sub-scope context item after the dot" }
 
   | [_ /rule_consequence: option(NOT) . FILLED]
@@ -133,16 +126,16 @@ rule syntax_error = parse error
   | /definition_parameters: OF . separated_nonempty_list(COMMA,lident)
     { "expected the name of the parameter for this dependent variable" }
 
-  | /separated_nonempty_list(DOT,addpos(LIDENT)): LIDENT . DOT separated_nonempty_list(DOT,addpos(LIDENT))
+  | /separated_nonempty_list(DOT,addpos(LIDENT)): LIDENT . DOT _
     { "expected a condition or a consequence for this rule, or the rest of the variable qualified name" }
 
   | [_ /rule_expr: separated_nonempty_list(DOT,addpos(LIDENT)) . option(addpos(definition_parameters))]
     { "expected a condition or a consequence for this rule" }
 
-  | / \rule: option(label) option(addpos(exception_to)) RULE . rule_expr option(state) option(condition_consequence) rule_consequence
+  | / \rule: option(label) option(addpos(exception_to)) RULE . rule_expr ...
     { "expected the name of the variable subject to the rule" }
 
-  | /code_item: SCOPE UIDENT option(preceded(UNDER_CONDITION,expression)) COLON . nonempty_list(scope_item)
+  | /code_item: SCOPE UIDENT _ COLON . nonempty_list(scope_item)
     { "expected a scope use item: a rule, definition or assertion" }
 
   | /expression: UIDENT . DOT qlident
@@ -176,32 +169,31 @@ rule syntax_error = parse error
   | LPAREN /expression: LPAREN . expression RPAREN
    { "expected an expression inside the parenthesis" }
 
-  | [_ /separated_nonempty_list(SEMICOLON,expression): expression . SEMICOLON separated_nonempty_list(SEMICOLON,expression)]
+  | [_ /separated_nonempty_list(SEMICOLON,expression): expression . SEMICOLON _]
     { "expected a semicolon or a right square bracket after the collection element" }
 
   | LBRACKET /expression: LBRACKET . loption(separated_nonempty_list(SEMICOLON,expression)) RBRACKET
     { "expected a collection element" }
 
-  | /nonempty_list(addpos(preceded(ALT,match_arm))): ALT . match_arm nonempty_list(addpos(preceded(ALT,match_arm)))
+  | /nonempty_list(addpos(preceded(ALT,match_arm))): ALT . match_arm _
     { "expected the name of the constructor for the enum case in the pattern matching" }
 
-  | /expression: expression WITH . constructor_binding
-    /expression: MATCH expression WITH . nonempty_list(addpos(preceded(ALT,match_arm)))
+  | /expression: MATCH expression WITH . _
     { "expected a pattern matching case" }
 
-  | /expression: MATCH . expression WITH nonempty_list(addpos(preceded(ALT,match_arm)))
+  | /expression: MATCH . expression WITH _
     { "expected an expression to match with" }
 
-  | /code_item: SCOPE UIDENT . option(preceded(UNDER_CONDITION,expression)) COLON nonempty_list(scope_item)
+  | /code_item: SCOPE UIDENT . _ COLON nonempty_list(scope_item)
     { "expected a scope use condition or the content of this scope use" }
 
-  | /code_item: SCOPE . UIDENT option(preceded(UNDER_CONDITION,expression)) COLON nonempty_list(scope_item)
+  | /code_item: SCOPE . UIDENT _ COLON nonempty_list(scope_item)
     { "expected the name of the scope being used" }
 
   | /source_file_item: BEGIN_CODE . code END_CODE
     { "expected some declaration or scope use inside this code block" }
 
-  | /nonempty_list(LAW_TEXT): LAW_TEXT . nonempty_list(LAW_TEXT)
+  | /nonempty_list(LAW_TEXT): LAW_TEXT . _
     { "expected some law text or code block" }
 
   | /source_file': . source_file
@@ -240,19 +232,19 @@ rule syntax_error = parse error
   | /expression: SUM primitive_typ OF . expression
     { "expected the collection on which to operate the sum" }
 
-  | /expression: OUTPUT . OF quident option(scope_call_args)
+  | /expression: OUTPUT . OF quident _
     { "expected 'of' then a scope to be applied" }
 
-  | /expression: OUTPUT OF . quident option(scope_call_args)
+  | /expression: OUTPUT OF . quident _
     { "expected a scope to be applied" }
 
   | [_ /expression: OUTPUT OF quident . option(scope_call_args)]
     { "expected 'with' then the arguments to the scope call ('{ -- var : ... }'), or a binary operator to be applied on the results of the call" }
 
-  | /option(scope_call_args): WITH_V . LBRACE list(preceded(ALT,struct_content_field)) RBRACE
+  | /option(scope_call_args): WITH_V . LBRACE _ RBRACE
     { "expected the arguments to the scope call ('{ --var: ... }')" }
 
-  | LBRACE /option(scope_call_args): WITH_V LBRACE . list(preceded(ALT,struct_content_field)) RBRACE
+  | /option(scope_call_args): WITH_V LBRACE . list(preceded(ALT,struct_content_field)) RBRACE
     { "expected a list of variable-value bindings in the form `-- var_name : <expression>`" }
 
   | /list(preceded(ALT,struct_content_field)): ALT . struct_content_field list(preceded(ALT,struct_content_field))
@@ -267,15 +259,13 @@ rule syntax_error = parse error
   | /expression: NOT . expression
     { "expected a boolean expression to apply 'not' on" }
 
-  | MINUS /expression: ... MINUS . expression ...
+  | /expression: ... MINUS . expression ...
     { "expected a numeric expression to apply '-' on" }
 
-  | /expression: MINIMUM . OF expression OR IF COLLECTION EMPTY THEN expression
-  | /expression: MAXIMUM . OF expression OR IF COLLECTION EMPTY THEN expression
+  | /expression: _ . OF expression OR IF COLLECTION EMPTY THEN expression
     { "expected 'of' then the collection to operate on" }
 
-  | /expression: MINIMUM OF . expression OR IF COLLECTION EMPTY THEN expression
-  | /expression: MAXIMUM OF . expression OR IF COLLECTION EMPTY THEN expression
+  | /expression: _ OF . expression OR IF COLLECTION EMPTY THEN expression
     { "expected an expression defining the collection to operate on" }
 
   | /expression: LET . lident DEFINED_AS expression IN expression
@@ -288,24 +278,22 @@ rule syntax_error = parse error
   | /expression: EXISTS lident AMONG . expression SUCH THAT expression
     { "expected an expression describing the collection to operate on" }
 
-  | /literal: DECIMAL_LITERAL . option(addpos(unit_literal))
+  | /literal: DECIMAL_LITERAL . _
     { "expected binary operator" }
 
-  | /expression: quident LBRACE . nonempty_list(preceded(ALT,struct_content_field)) RBRACE
+  | /expression: quident LBRACE . _ RBRACE
     { "expected a list of field bindings of the form '-- fld : expression'" }
 
-  | /nonempty_list(preceded(ALT,struct_content_field)): ALT . struct_content_field nonempty_list(preceded(ALT,struct_content_field))
+  | /nonempty_list(preceded(ALT,struct_content_field)): ALT . struct_content_field _
     { "expected a 'fldname : expression' binding" }
 
   | /option(preceded(CONTENT,expression)): CONTENT . expression
     { "expected an expression defining the enumeration case content" }
 
-  | /expression: lident AMONG . expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
-    /expression: lident AMONG . expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
+  | /expression: lident AMONG . expression SUCH THAT expression IS ...
     { "expected an expression defining a collection" }
 
-  | [_ /expression: lident AMONG expression . SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
-       /expression: lident AMONG expression . SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression]
+  | [_ /expression: lident AMONG expression . SUCH THAT expression IS ...]
     { "expected 'such that <expression>'" }
 
   | /expression: expression XOR . expression
@@ -323,10 +311,10 @@ rule syntax_error = parse error
   | /expression: expression OF . funcall_args
     { "expected an expression specifying the function argument" }
 
-  | /expression: expression FOR . lident AMONG expression SUCH THAT expression
+  | /expression: expression FOR . lident AMONG ...
     { "expected an identifier as in the form '<expression> for <ident> among <expression>'" }
 
-  | [_ /expression: expression FOR lident . AMONG expression SUCH THAT expression]
+  | [_ /expression: expression FOR lident . AMONG ...]
     { "expected 'in', as in the form '<expression> for <ident> among <expression>'" }
 
   | /expression: expression FOR lident AMONG . expression SUCH THAT expression
@@ -350,24 +338,20 @@ rule syntax_error = parse error
   | /qlident: UIDENT DOT . qlident
     { "expected a module path, as in 'Module.Submodule.variable'" }
 
-  | /expression: lident AMONG expression SUCH . THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
-    /expression: lident AMONG expression SUCH . THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
+  | /expression: lident AMONG expression SUCH . THAT expression ...
     { "expected the form '<var> among <expression> such that <expression>'" }
 
-  | /expression: lident AMONG expression SUCH THAT . expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
-    /expression: lident AMONG expression SUCH THAT . expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
+  | /expression: lident AMONG expression SUCH THAT . expression ...
     { "expected the form '<var> among <expression> such that <expression>'" }
 
-  | /expression: lident AMONG expression SUCH THAT expression IS . MAXIMUM OR IF COLLECTION EMPTY THEN expression
-    /expression: lident AMONG expression SUCH THAT expression IS . MINIMUM OR IF COLLECTION EMPTY THEN expression
+  | /expression: ... IS . MAXIMUM ...
+    /expression: ... IS . MINIMUM ...
     { "expected 'maximum' or 'minimum'" }
 
-  | /expression: lident AMONG expression SUCH THAT expression IS MINIMUM . OR IF COLLECTION EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM . OR IF COLLECTION EMPTY THEN expression
+  | /expression: ... . OR IF COLLECTION EMPTY THEN expression
     { "expected 'or if collection empty then <expression>'" }
 
-  | /expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN . expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN . expression
+  | /expression: ... OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
 
   | [_ /expression: EXISTS lident AMONG expression . SUCH THAT expression]
@@ -394,7 +378,7 @@ rule syntax_error = parse error
   | [_ /expression: LET lident DEFINED_AS expression . IN expression]
     { "expected the keyword 'in'" }
 
-  | [_ /expression: MATCH expression . WITH nonempty_list(addpos(preceded(ALT,match_arm)))]
+  | [_ /expression: MATCH expression . WITH _]
     { "expected 'with pattern -- <pattern> : <expression> ...'" }
 
   | /match_arm: WILDCARD . COLON expression
@@ -403,35 +387,17 @@ rule syntax_error = parse error
   | [_ /match_arm: constructor_binding COLON expression .]
     { "expected a binary operator, or the next case in the form '-- NextCase : <expression>', or a keyword ending the match expression and starting the next item" }
 
-  | [_ /expression: MAXIMUM OF expression . OR IF COLLECTION EMPTY THEN expression]
-    { "expected 'or if collection empty then <expression>'" }
-
-  | /expression: MAXIMUM OF expression OR IF COLLECTION EMPTY THEN . expression
+  | /expression: ... OR IF COLLECTION EMPTY THEN . expression
     { "expected an expression, following the form 'or if collection empty then <expression>'" }
 
-  | [_ /expression: MINIMUM OF expression . OR IF COLLECTION EMPTY THEN expression]
+  | [_ /expression: _ OF expression . OR IF COLLECTION EMPTY THEN expression]
     { "expected 'or if collection empty then <expression>'" }
 
-  | /expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR . IF COLLECTION EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR . IF COLLECTION EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF . COLLECTION EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF . COLLECTION EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION . EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION . EMPTY THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY . THEN expression
-  | /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY . THEN expression
-  | /expression: MAXIMUM OF expression OR . IF COLLECTION EMPTY THEN expression
-  | /expression: MAXIMUM OF expression OR IF . COLLECTION EMPTY THEN expression
-  | /expression: MAXIMUM OF expression OR IF COLLECTION . EMPTY THEN expression
-  | /expression: MAXIMUM OF expression OR IF COLLECTION EMPTY . THEN expression
-  | /expression: MINIMUM OF expression OR . IF COLLECTION EMPTY THEN expression
-  | /expression: MINIMUM OF expression OR IF . COLLECTION EMPTY THEN expression
-  | /expression: MINIMUM OF expression OR IF COLLECTION . EMPTY THEN expression
-  | /expression: MINIMUM OF expression OR IF COLLECTION EMPTY . THEN expression
+  | /expression: ... OR . IF COLLECTION EMPTY THEN expression
+  | /expression: ... OR IF . COLLECTION EMPTY THEN expression
+  | /expression: ... OR IF COLLECTION . EMPTY THEN expression
+  | /expression: ... OR IF COLLECTION EMPTY . THEN expression
     { "expected the form 'or if collection empty then <expression>'" }
-
-  | /expression: MINIMUM OF expression OR IF COLLECTION EMPTY THEN . expression
-    { "expected an expression, following the form 'or if collection empty then <expression>'" }
 
   | /expression: IF . expression THEN expression ELSE expression
     { "expected an expression for the test of the conditional" }
@@ -447,36 +413,27 @@ rule syntax_error = parse error
   | /state: STATE . lident
     { "expected an identifier defining the name of the state" }
 
-  | [_ / \rule: option(label) option(addpos(exception_to)) RULE rule_expr option(state) . option(condition_consequence) rule_consequence]
-  | [_ /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) . option(condition_consequence) DEFINED_AS expression]
+  | [_ / \rule: ... RULE rule_expr option(state) . option(condition_consequence) rule_consequence]
+  | [_ /definition: ... DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) . option(condition_consequence) DEFINED_AS expression]
     { "expected 'equals' then an expression defining the rule" }
 
   | [_ /scope_decl_item_attribute: scope_decl_item_attribute_input . scope_decl_item_attribute_output]
     { "expected a variable name, optionally preceded by 'output'" }
 
-  | [_ /scope_decl_item: scope_decl_item_attribute . lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-       /scope_decl_item: scope_decl_item_attribute . lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-       /scope_decl_item: scope_decl_item_attribute . lident CONTENT typ_data list(state)
-       /scope_decl_item: scope_decl_item_attribute . lident CONDITION DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-       /scope_decl_item: scope_decl_item_attribute . lident CONDITION DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-       /scope_decl_item: scope_decl_item_attribute . lident CONDITION list(state) ]
+  | [_ /scope_decl_item: scope_decl_item_attribute . lident CONTENT ...
+       /scope_decl_item: scope_decl_item_attribute . lident CONDITION ...]
     { "expected a variable name" }
 
-  | [_ /scope_decl_item: scope_decl_item_attribute lident . CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-       /scope_decl_item: scope_decl_item_attribute lident . CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-       /scope_decl_item: scope_decl_item_attribute lident . CONTENT typ_data list(state)
-       /scope_decl_item: scope_decl_item_attribute lident . CONDITION DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-       /scope_decl_item: scope_decl_item_attribute lident . CONDITION DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-       /scope_decl_item: scope_decl_item_attribute lident . CONDITION list(state)]
+  | [_ /scope_decl_item: scope_decl_item_attribute lident . CONTENT ...
+       /scope_decl_item: scope_decl_item_attribute lident . CONDITION ...]
     { "expected either 'condition', or 'content' followed by the expected variable type" }
 
-  | [_ /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-       /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-       /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data . list(state)]
+  | [_ /scope_decl_item: ... CONTENT typ_data . DEPENDS ...
+       /scope_decl_item: ... CONTENT typ_data . list(state)]
     { "expected either 'state' definitions for the variable, or the next declaration for the scope" }
 
-  | /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data DEPENDS . separated_nonempty_list(COMMA,var_content) list(state)
-    /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data DEPENDS . LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
+  | /scope_decl_item: ... CONTENT typ_data DEPENDS . separated_nonempty_list(COMMA,var_content) list(state)
+    /scope_decl_item: ... CONTENT typ_data DEPENDS . LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
     { "expected a name and type for the dependency of this definition ('<ident> content <type>')" }
 
   | /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data DEPENDS LPAREN . separated_nonempty_list(COMMA,var_content) RPAREN list(state)
@@ -494,8 +451,7 @@ rule syntax_error = parse error
   | [_ /scope_decl_item: scope_decl_item_attribute lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) . list(state)]
     { "expected the next declaration for the scope" }
 
-  | /scope_decl_item: scope_decl_item_attribute lident CONDITION . DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-    /scope_decl_item: scope_decl_item_attribute lident CONDITION . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
+  | /scope_decl_item: scope_decl_item_attribute lident CONDITION . DEPENDS ...
     /scope_decl_item: scope_decl_item_attribute lident CONDITION . list(state)
     { "expected the next declaration for the scope" }
 
@@ -515,9 +471,7 @@ rule syntax_error = parse error
   | [_ /scope_decl_item: scope_decl_item_attribute lident CONDITION DEPENDS separated_nonempty_list(COMMA,var_content) . list(state) ]
     { "expected the next definition in scope, or a comma followed by another argument declaration (', <ident> content <type>')" }
 
-  | [scope_decl_item
-     /nonempty_list(addpos(scope_decl_item)): scope_decl_item .
-     /nonempty_list(addpos(scope_decl_item)): scope_decl_item . nonempty_list(addpos(scope_decl_item))]
+  | [scope_decl_item /nonempty_list(addpos(scope_decl_item)): scope_decl_item . ...]
     { "expected the next declaration for the scope" }
 
   | [lident /scope_decl_item: lident . SCOPE UIDENT]
@@ -526,29 +480,27 @@ rule syntax_error = parse error
   | /scope_decl_item: lident SCOPE . UIDENT
     { "expected a scope name" }
 
-  | [lident
-     /code_item: DECLARATION lident . CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
-     /code_item: DECLARATION lident . CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
-     /code_item: DECLARATION lident . CONTENT typ_data DEFINED_AS expression]
+  | [lident /code_item: DECLARATION lident . CONTENT typ_data DEPENDS ...
+            /code_item: DECLARATION lident . CONTENT typ_data DEFINED_AS ...]
     { "expected 'content <type>'" }
 
-  | /code_item: DECLARATION lident CONTENT typ_data DEPENDS . separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
-    /code_item: DECLARATION lident CONTENT typ_data DEPENDS . LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
+  | /code_item: ... DEPENDS . separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
+    /code_item: ... DEPENDS . LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
     { "expected a variable name, following the form 'depends on <var> content <type>'" }
 
-  | /code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN . separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
+  | /code_item: ... DEPENDS LPAREN . separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
     { "expected a variable name, following the form 'depends on (<var> content <type>, ...)'" }
 
-  | [_ /code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) . RPAREN DEFINED_AS expression]
+  | [_ /code_item: ... DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) . RPAREN DEFINED_AS expression]
     { "expected ')', or ',' followed by another argument declaration in the form '<var> content <type>'" }
 
-  | /code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN . DEFINED_AS expression
+  | /code_item: ... RPAREN . DEFINED_AS expression
     { "expected 'equals <expression>'" }
 
-  | [_ /separated_nonempty_list(COMMA,var_content): lident . CONTENT typ_data COMMA separated_nonempty_list(COMMA,var_content)]
+  | [_ /lident . CONTENT typ_data COMMA _]
     { "expected 'content <type>'" }
 
-  | [_ /separated_nonempty_list(COMMA,var_content): lident CONTENT typ_data . COMMA separated_nonempty_list(COMMA,var_content)]
+  | [_ /separated_nonempty_list(COMMA,var_content): lident CONTENT typ_data . COMMA _]
     { "expected 'equals <expression>'" }
 
   | /separated_nonempty_list(COMMA,var_content): lident CONTENT typ_data COMMA . separated_nonempty_list(COMMA,var_content)
@@ -569,8 +521,7 @@ rule syntax_error = parse error
        - a dependency specification ('depends on ...')\n\
        - the body of the declaration ('equals ...')" }
 
-  | [_ /code_item: DECLARATION lident CONTENT typ_data . DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
-       /code_item: DECLARATION lident CONTENT typ_data . DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
+  | [_ /code_item: DECLARATION lident CONTENT typ_data . DEPENDS ...
        /code_item: DECLARATION lident CONTENT typ_data . DEFINED_AS expression]
     { "expected 'equals <expression>', optionally preceded by 'depends on <var> content <type>'" }
 
@@ -599,28 +550,10 @@ rule syntax_error = parse error
       - a directive, e.g. '> Include: <filename>'"
     }
 
-  | /scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data DEPENDS separated_nonempty_list(COMMA,var_content) list(state)
-    /scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN list(state)
-    /scope_decl_item: scope_decl_item_attribute lident CONTENT . typ_data list(state)
-  | /code_item: DECLARATION lident CONTENT . typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression
-    /code_item: DECLARATION lident CONTENT . typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression
-    /code_item: DECLARATION lident CONTENT . typ_data DEFINED_AS expression
-  | /separated_nonempty_list(COMMA,var_content): lident CONTENT . typ_data COMMA separated_nonempty_list(COMMA,var_content)
+  | /... lident CONTENT . typ_data ...
     { "expected a type" }
 
-  | /expression: expression PLUS . expression
-  | /expression: expression MULT . expression
-  | /expression: expression CONTAINS . expression
-  | /expression: expression DIV . expression
-  | /expression: expression NOT_EQUAL . expression
-  | /expression: expression MINUS . expression
-  | /expression: expression LESSER_EQUAL . expression
-  | /expression: expression LESSER . expression
-  | /expression: expression GREATER_EQUAL . expression
-  | /expression: expression GREATER . expression
-  | /expression: expression EQUAL . expression
-  | /expression: expression AND . expression
-  | /expression: expression OR . expression
+  | /expression: expression _ . expression
   | /expression: IF expression THEN expression ELSE . expression
   | /expression SEMICOLON . separated_nonempty_list(SEMICOLON,expression)
   | /expression: LET lident DEFINED_AS expression IN . expression
@@ -628,45 +561,24 @@ rule syntax_error = parse error
   | /match_arm: WILDCARD COLON . expression
   | /match_arm: constructor_binding COLON . expression
   | /option(preceded(UNDER_CONDITION,expression)): UNDER_CONDITION . expression
-  | /code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS . expression
-  | /code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS . expression
+  | /code_item: ... DEFINED_AS . expression
     { "expected an expression" }
 
-  | [_ /expression: expression XOR expression .]
-  | [_ /expression: expression PLUSPLUS expression .]
   | [_ /funcall_args: expression . /funcall_args: expression . COMMA funcall_args]
   | [_ /expression: expression FOR lident AMONG expression SUCH THAT expression .]
-  | [_ /expression: expression PLUS expression .]
-  | [_ /expression: expression MULT expression .]
-  | [_ /expression: expression CONTAINS expression .]
-  | [_ /expression: expression DIV expression .]
-  | [_ /expression: expression OR expression .]
-  | [_ /expression: expression NOT_EQUAL expression .]
-  | [_ /expression: expression MINUS expression .]
-  | [_ /expression: expression LESSER_EQUAL expression .]
-  | [_ /expression: expression LESSER expression .]
-  | [_ /expression: expression GREATER_EQUAL expression .]
-  | [_ /expression: expression GREATER expression .]
-  | [_ /expression: expression EQUAL expression .]
-  | [_ /expression: expression AND expression .]
-  | [_ /expression: lident AMONG expression SUCH THAT expression .]
-  | [_ /expression: lident AMONG expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression .]
-  | [_ /expression: lident AMONG expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression .]
-  | [_ /option(preceded(CONTENT,expression)): CONTENT expression .]
-  | [_ /expression: EXISTS lident AMONG expression SUCH THAT expression .]
-  | [_ /expression: FOR ALL lident AMONG expression WE_HAVE expression .]
+  | [_ /expression: expression _ expression .]
+  | [_ /expression: ... SUCH THAT expression .]
+  | [_ /expression: ... OR IF COLLECTION EMPTY THEN expression .]
+  | [_ /expression: ... WE_HAVE expression .]
   | [_ /expression: IF expression THEN expression ELSE expression .]
   | [_ /expression: LET lident DEFINED_AS expression IN expression .]
+  | [_ /option(preceded(CONTENT,expression)): CONTENT expression .]
   | [_ /match_arm: WILDCARD COLON expression .]
-  | [_ /expression: MAXIMUM OF expression OR IF COLLECTION EMPTY THEN expression .]
-  | [_ /expression: MINIMUM OF expression OR IF COLLECTION EMPTY THEN expression .]
   | [_ /expression: MINUS expression .]
   | [_ /expression: NOT expression .]
   | [_ /expression: SUM primitive_typ OF expression .]
   | [_ /assertion: VARIES separated_nonempty_list(DOT,addpos(LIDENT)) WITH_V expression . option(addpos(variation_type))]
-  | [_ /definition: option(label) option(exception_to) DEFINITION separated_nonempty_list(DOT,addpos(LIDENT)) option(addpos(definition_parameters)) option(state) option(condition_consequence) DEFINED_AS expression .]
-  | [_ /code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression .]
-  | [_ /code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression .]
+  | [_ /... DEFINED_AS expression .]
   | /expression: LIDENT . /lident: LIDENT .
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
@@ -676,6 +588,5 @@ rule syntax_error = parse error
   | [_ /assertion: option(condition_consequence) expression .]
     { "expected a new scope use item" }
 
-  | [_ /nonempty_list(scope_item): scope_item .
-       /nonempty_list(scope_item): scope_item . nonempty_list(scope_item)]
+  | [_ /nonempty_list(scope_item): scope_item . ...]
     { "expected the next item in the scope, or the start of a new top-level decleration" }
