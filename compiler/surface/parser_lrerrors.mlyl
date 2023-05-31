@@ -134,7 +134,6 @@ rule syntax_error = parse error
     { "expected an expression for the definition" }
 
   | [lident
-    / separated_nonempty_list(COMMA,lident): lident .
     / separated_nonempty_list(COMMA,lident): lident . COMMA separated_nonempty_list(COMMA,lident)]
     { "expected an expression for defining this function, introduced by the defined as keyword ; or a comma followed by another argument" }
 
@@ -176,7 +175,6 @@ rule syntax_error = parse error
     { "expected the name of the parameter for this dependent variable" }
 
   | LIDENT
-    / separated_nonempty_list(DOT,addpos(LIDENT)): LIDENT .
     / separated_nonempty_list(DOT,addpos(LIDENT)): LIDENT . DOT separated_nonempty_list(DOT,addpos(LIDENT))
     { "expected a condition or a consequence for this rule, or the rest of the variable qualified name" }
 
@@ -195,7 +193,6 @@ rule syntax_error = parse error
   | UIDENT
     / expression: UIDENT . DOT qlident
     / quident: UIDENT . DOT quident
-    / quident: UIDENT .
     { "expected a payload for the enum case constructor, or the rest of the expression (with an operator ?)" }
 
   | EXISTS;
@@ -244,7 +241,6 @@ rule syntax_error = parse error
     { "expected a collection element" }
 
   | ALT
-    / nonempty_list(addpos(preceded(ALT,match_arm))): ALT . match_arm
     / nonempty_list(addpos(preceded(ALT,match_arm))): ALT . match_arm nonempty_list(addpos(preceded(ALT,match_arm)))
     { "expected the name of the constructor for the enum case in the pattern matching" }
 
@@ -270,7 +266,6 @@ rule syntax_error = parse error
     { "expected some declaration or scope use inside this code block" }
 
   | LAW_TEXT
-    / nonempty_list(LAW_TEXT): LAW_TEXT .
     / nonempty_list(LAW_TEXT): LAW_TEXT . nonempty_list(LAW_TEXT)
     { "expected some law text or code block" }
 
@@ -293,7 +288,6 @@ rule syntax_error = parse error
   | UIDENT
     / qlident: UIDENT . DOT qlident
     / quident: UIDENT . DOT quident
-    / quident: UIDENT .
     { "expected one of:\n\
        - a dot followed by an identifier ('Path.And.var')\n\
        - or a structure content ('Structname { -- field1: ... }')\n\
@@ -376,8 +370,7 @@ rule syntax_error = parse error
     / expression: MAXIMUM OF . expression OR IF COLLECTION EMPTY THEN expression
     { "expected an expression defining the collection to operate on" }
 
-  | LET
-    / expression: LET . lident DEFINED_AS expression IN expression
+  | LET / expression: LET . lident DEFINED_AS expression IN expression
     { "expected 'var equals expression' after 'let'" }
 
   | LET;
@@ -401,7 +394,6 @@ rule syntax_error = parse error
     { "expected a list of field bindings of the form '-- fld : expression'" }
 
   | ALT
-    / nonempty_list(preceded(ALT,struct_content_field)): ALT . struct_content_field
     / nonempty_list(preceded(ALT,struct_content_field)): ALT . struct_content_field nonempty_list(preceded(ALT,struct_content_field))
     { "expected a 'fldname : expression' binding" }
 
@@ -410,14 +402,12 @@ rule syntax_error = parse error
     { "expected an expression defining the enumeration case content" }
 
   | lident; AMONG
-    / expression: lident AMONG . expression SUCH THAT expression
     / expression: lident AMONG . expression SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
     / expression: lident AMONG . expression SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
     { "expected an expression defining a collection" }
 
   | lident; AMONG;
     [expression
-     / expression: lident AMONG expression . SUCH THAT expression
      / expression: lident AMONG expression . SUCH THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
      / expression: lident AMONG expression . SUCH THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression]
     { "expected 'such that <expression>'" }
@@ -443,25 +433,20 @@ rule syntax_error = parse error
     { "expected an expression specifying the function argument" }
 
   | expression; FOR
-    / expression: expression FOR . lident AMONG expression
     / expression: expression FOR . lident AMONG expression SUCH THAT expression
     { "expected an identifier as in the form '<expression> for <ident> among <expression>'" }
 
   | expression; FOR;
     [lident
-    / expression: expression FOR lident . AMONG expression
     / expression: expression FOR lident . AMONG expression SUCH THAT expression]
     { "expected 'in', as in the form '<expression> for <ident> among <expression>'" }
 
   | expression; FOR; lident; AMONG
-    / expression: expression FOR lident AMONG . expression
     / expression: expression FOR lident AMONG . expression SUCH THAT expression
     { "expected an expression defining a collection" }
 
   | expression; FOR; lident; AMONG;
-    [expression
-     / expression: expression FOR lident AMONG expression .
-     / expression: expression FOR lident AMONG expression . SUCH THAT expression]
+    [expression / expression: expression FOR lident AMONG expression . SUCH THAT expression]
     { "expected 'such that <expression>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | expression; FOR; lident; AMONG; expression; SUCH
@@ -485,13 +470,11 @@ rule syntax_error = parse error
     { "expected a module path, as in 'Module.Submodule.variable'" }
 
   | lident; AMONG; expression; SUCH
-    / expression: lident AMONG expression SUCH . THAT expression
     / expression: lident AMONG expression SUCH . THAT expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
     / expression: lident AMONG expression SUCH . THAT expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
     { "expected the form '<var> among <expression> such that <expression>'" }
 
   | lident; AMONG; expression; SUCH; THAT
-    / expression: lident AMONG expression SUCH THAT . expression
     / expression: lident AMONG expression SUCH THAT . expression IS MAXIMUM OR IF COLLECTION EMPTY THEN expression
     / expression: lident AMONG expression SUCH THAT . expression IS MINIMUM OR IF COLLECTION EMPTY THEN expression
     { "expected the form '<var> among <expression> such that <expression>'" }
@@ -601,7 +584,6 @@ rule syntax_error = parse error
     / expression: MAXIMUM OF expression OR IF COLLECTION EMPTY . THEN expression
   | MINIMUM; OF; expression; OR
     / expression: MINIMUM OF expression OR . IF COLLECTION EMPTY THEN expression
-    / expression: expression OR . expression
   | MINIMUM; OF; expression; OR; IF
     / expression: MINIMUM OF expression OR IF . COLLECTION EMPTY THEN expression
     / expression: IF . expression THEN expression ELSE expression
@@ -648,7 +630,7 @@ rule syntax_error = parse error
     { "expected 'fulfilled' or 'not fulfilled'" }
 
   | [scope_decl_item_attribute_input
-    / scope_decl_item_attribute: scope_decl_item_attribute_input . scope_decl_item_attribute_output ]
+    / scope_decl_item_attribute: scope_decl_item_attribute_input . scope_decl_item_attribute_output]
     { "expected a variable name, optionally preceded by 'output'" }
 
   | [scope_decl_item_attribute
@@ -781,18 +763,15 @@ rule syntax_error = parse error
     { "expected 'equals <expression>'" }
 
   | [lident
-    / separated_nonempty_list(COMMA,var_content): lident . CONTENT typ_data
     / separated_nonempty_list(COMMA,var_content): lident . CONTENT typ_data COMMA separated_nonempty_list(COMMA,var_content)]
     { "expected 'content <type>'" }
 
   | lident; CONTENT
-    / separated_nonempty_list(COMMA,var_content): lident CONTENT . typ_data
     / separated_nonempty_list(COMMA,var_content): lident CONTENT . typ_data COMMA separated_nonempty_list(COMMA,var_content)
     { "expected a type" }
 
   | lident; CONTENT;
     [typ_data
-    / separated_nonempty_list(COMMA,var_content): lident CONTENT typ_data .
     / separated_nonempty_list(COMMA,var_content): lident CONTENT typ_data . COMMA separated_nonempty_list(COMMA,var_content)]
     { "expected 'equals <expression>'" }
 
@@ -809,14 +788,10 @@ rule syntax_error = parse error
     / match_arm: constructor_binding . COLON expression]
     { "expected a colon followed by an expression, as in '-- Case : <expression>'" }
 
-  | [quident
-    / constructor_binding: quident . OF lident
-    / constructor_binding: quident .]
+  | [quident / constructor_binding: quident . OF lident]
     { "expected the form 'with pattern <Case> of <ident> and <expr>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | UIDENT
-    / quident: UIDENT . DOT quident
-    / quident: UIDENT .
+  | UIDENT / quident: UIDENT . DOT quident
     { "expected one of\n\
        - a dot specifying the path to the given structure or enumeration ('Path.To.variable')\n\
        - a dependency specification ('depends on ...')\n\
@@ -841,9 +816,7 @@ rule syntax_error = parse error
     / source_file_item: BEGIN_DIRECTIVE LAW_INCLUDE COLON . nonempty_list(DIRECTIVE_ARG) option(AT_PAGE) END_DIRECTIVE
     { "expected a file name or 'JORFTEXTNNNNNNNNNNNN'" }
 
-  | DIRECTIVE_ARG
-    / nonempty_list(DIRECTIVE_ARG): DIRECTIVE_ARG .
-    / nonempty_list(DIRECTIVE_ARG): DIRECTIVE_ARG . nonempty_list(DIRECTIVE_ARG)
+  | DIRECTIVE_ARG / nonempty_list(DIRECTIVE_ARG): DIRECTIVE_ARG . nonempty_list(DIRECTIVE_ARG)
     { "expected a page specification in the form '@p.<number>', or a newline" }
 
   | BEGIN_DIRECTIVE; LAW_INCLUDE; COLON;
