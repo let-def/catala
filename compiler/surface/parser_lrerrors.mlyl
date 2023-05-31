@@ -393,10 +393,7 @@ rule syntax_error = parse error
   | [_ /expression: _ OF expression . OR IF COLLECTION EMPTY THEN expression]
     { "expected 'or if collection empty then <expression>'" }
 
-  | /expression: ... OR . IF COLLECTION EMPTY THEN expression
-  | /expression: ... OR IF . COLLECTION EMPTY THEN expression
-  | /expression: ... OR IF COLLECTION . EMPTY THEN expression
-  | /expression: ... OR IF COLLECTION EMPTY . THEN expression
+  | /expression: ... OR . IF . COLLECTION . EMPTY . THEN expression
     { "expected the form 'or if collection empty then <expression>'" }
 
   | /expression: IF . expression THEN expression ELSE expression
