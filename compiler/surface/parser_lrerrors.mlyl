@@ -257,10 +257,6 @@ rule syntax_error = parse error
     / expression: MATCH . expression WITH nonempty_list(addpos(preceded(ALT,match_arm)))
     { "expected an expression to match with" }
 
-  | UNDER_CONDITION
-    / option(preceded(UNDER_CONDITION,expression)): UNDER_CONDITION . expression
-    { "expected an expression" }
-
   | SCOPE; UIDENT
     / code_item: SCOPE UIDENT . option(preceded(UNDER_CONDITION,expression)) COLON nonempty_list(scope_item)
     { "expected a scope use condition or the content of this scope use" }
@@ -397,10 +393,6 @@ rule syntax_error = parse error
     [lident / expression: LET lident . DEFINED_AS expression IN expression]
     { "expected 'equals expression' after 'let'" }
 
-  | LET; lident; DEFINED_AS
-    / expression: LET lident DEFINED_AS . expression IN expression
-    { "expected an expression" }
-
   | FOR; ALL; lident; AMONG
     / expression: FOR ALL lident AMONG . expression WE_HAVE expression
     { "expected an expression describing the collection to operate on" }
@@ -506,17 +498,9 @@ rule syntax_error = parse error
     [expression / expression: expression FOR lident AMONG expression SUCH THAT expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | expression; PLUS
-    / expression: expression PLUS . expression
-    { "expected an expression" }
-
   | expression; PLUS;
     [expression / expression: expression PLUS expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; MULT
-    / expression: expression MULT . expression
-    { "expected an expression" }
 
   | expression; MULT;
     [expression / expression: expression MULT expression .]
@@ -534,16 +518,8 @@ rule syntax_error = parse error
     / qlident: UIDENT DOT . qlident
     { "expected a module path, as in 'Module.Submodule.variable'" }
 
-  | expression; CONTAINS
-    / expression: expression CONTAINS . expression
-    { "expected an expression" }
-
   | expression; CONTAINS; [expression / expression: expression CONTAINS expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; DIV
-    / expression: expression DIV . expression
-    { "expected an expression" }
 
   | expression; DIV;
     [expression / expression: expression DIV expression .]
@@ -553,65 +529,33 @@ rule syntax_error = parse error
     [expression / expression: expression OR expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | expression; NOT_EQUAL
-    / expression: expression NOT_EQUAL . expression
-    { "expected an expression" }
-
   | expression; NOT_EQUAL;
     [expression / expression: expression NOT_EQUAL expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; MINUS
-    / expression: expression MINUS . expression
-    { "expected an expression" }
 
   | expression; MINUS;
     [expression / expression: expression MINUS expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | expression; LESSER_EQUAL
-    / expression: expression LESSER_EQUAL . expression
-    { "expected an expression" }
-
   | expression; LESSER_EQUAL;
     [expression / expression: expression LESSER_EQUAL expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; LESSER
-    / expression: expression LESSER . expression
-    { "expected an expression" }
 
   | expression; LESSER;
     [expression / expression: expression LESSER expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | expression; GREATER_EQUAL
-    / expression: expression GREATER_EQUAL . expression
-    { "expected an expression" }
-
   | expression; GREATER_EQUAL;
     [expression / expression: expression GREATER_EQUAL expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; GREATER
-    / expression: expression GREATER . expression
-    { "expected an expression" }
 
   | expression; GREATER;
     [expression / expression: expression GREATER expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | expression; EQUAL
-    / expression: expression EQUAL . expression
-    { "expected an expression" }
-
   | expression; EQUAL;
     [expression / expression: expression EQUAL expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | expression; AND
-    / expression: expression AND . expression
-    { "expected an expression" }
 
   | expression; AND;
     [expression / expression: expression AND expression .]
@@ -704,25 +648,13 @@ rule syntax_error = parse error
     [expression / expression: IF expression THEN expression . ELSE expression]
     { "expected 'else <expression>'" }
 
-  | IF; expression; THEN; expression; ELSE
-    / expression: IF expression THEN expression ELSE . expression
-    { "expected an expression" }
-
   | IF; expression; THEN; expression; ELSE;
     [expression / expression: IF expression THEN expression ELSE expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
-  | expression; SEMICOLON
-    / separated_nonempty_list(SEMICOLON,expression): expression SEMICOLON . separated_nonempty_list(SEMICOLON,expression)
-    { "expected an expression" }
-
   | LET; lident; DEFINED_AS;
     [expression / expression: LET lident DEFINED_AS expression . IN expression]
     { "expected the keyword 'in'" }
-
-  | LET; lident; DEFINED_AS; expression; IN
-    / expression: LET lident DEFINED_AS expression IN . expression
-    { "expected an expression" }
 
   | LET; lident; DEFINED_AS; expression; IN;
     [expression / expression: LET lident DEFINED_AS expression IN expression .]
@@ -736,17 +668,9 @@ rule syntax_error = parse error
     / match_arm: WILDCARD . COLON expression
     { "expected ':' followed by an expression" }
 
-  | WILDCARD; COLON
-    / match_arm: WILDCARD COLON . expression
-    { "expected an expression" }
-
   | WILDCARD; COLON;
     [expression / match_arm: WILDCARD COLON expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
-
-  | constructor_binding; COLON
-    / match_arm: constructor_binding COLON . expression
-    { "expected an expression" }
 
   | constructor_binding; COLON;
     [expression / match_arm: constructor_binding COLON expression .]
@@ -1001,10 +925,6 @@ rule syntax_error = parse error
     / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN . DEFINED_AS expression
     { "expected 'equals <expression>'" }
 
-  | DECLARATION; lident; CONTENT; typ_data; DEPENDS; LPAREN; separated_nonempty_list(COMMA,var_content); RPAREN; DEFINED_AS
-    / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS . expression
-    { "expected an expression" }
-
   | DECLARATION; lident; CONTENT; typ_data; DEPENDS; LPAREN; separated_nonempty_list(COMMA,var_content); RPAREN; DEFINED_AS;
     [expression / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
@@ -1058,10 +978,6 @@ rule syntax_error = parse error
     / code_item: DECLARATION lident CONTENT typ_data . DEFINED_AS expression]
     { "expected 'equals <expression>', optionally preceded by 'depends on <var> content <type>'" }
 
-  | DECLARATION; lident; CONTENT; typ_data; DEPENDS; separated_nonempty_list(COMMA,var_content); DEFINED_AS
-    / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS . expression
-    { "expected an expression" }
-
   | DECLARATION; lident; CONTENT; typ_data; DEPENDS; separated_nonempty_list(COMMA,var_content); DEFINED_AS;
     [expression / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS expression .]
     { "expected a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
@@ -1101,6 +1017,26 @@ rule syntax_error = parse error
       - a directive, e.g. '> Include: <filename>'"
     }
 
-  | expression; OR
-    / expression: expression OR . expression
+  | PLUS          / expression: expression PLUS . expression
+  | MULT          / expression: expression MULT . expression
+  | CONTAINS      / expression: expression CONTAINS . expression
+  | DIV           / expression: expression DIV . expression
+  | NOT_EQUAL     / expression: expression NOT_EQUAL . expression
+  | MINUS         / expression: expression MINUS . expression
+  | LESSER_EQUAL  / expression: expression LESSER_EQUAL . expression
+  | LESSER        / expression: expression LESSER . expression
+  | GREATER_EQUAL / expression: expression GREATER_EQUAL . expression
+  | GREATER       / expression: expression GREATER . expression
+  | EQUAL         / expression: expression EQUAL . expression
+  | AND           / expression: expression AND . expression
+  | OR            / expression: expression OR . expression
+  | ELSE          / expression: IF expression THEN expression ELSE . expression
+  | SEMICOLON     / expression SEMICOLON . separated_nonempty_list(SEMICOLON,expression)
+  | IN            / expression: LET lident DEFINED_AS expression IN . expression
+  | COLON         / match_arm: WILDCARD COLON . expression
+  | COLON         / match_arm: constructor_binding COLON . expression
+  | UNDER_CONDITION / option(preceded(UNDER_CONDITION,expression)): UNDER_CONDITION . expression
+  | DEFINED_AS    / expression: LET lident DEFINED_AS . expression IN expression
+  | DEFINED_AS    / code_item: DECLARATION lident CONTENT typ_data DEPENDS LPAREN separated_nonempty_list(COMMA,var_content) RPAREN DEFINED_AS . expression
+  | DEFINED_AS    / code_item: DECLARATION lident CONTENT typ_data DEPENDS separated_nonempty_list(COMMA,var_content) DEFINED_AS . expression
     { "expected an expression" }
