@@ -475,13 +475,13 @@ rule syntax_error = parse error
   | expression; FOR
     / expression: expression FOR . lident AMONG expression
     / expression: expression FOR . lident AMONG expression SUCH THAT expression
-    { "Expected an identifier as in the form '<expression> for <ident> among <expression>'" }
+    { "expected an identifier as in the form '<expression> for <ident> among <expression>'" }
 
   | expression; FOR;
     [lident
     / expression: expression FOR lident . AMONG expression
     / expression: expression FOR lident . AMONG expression SUCH THAT expression]
-    { "Expected 'in', as in the form '<expression> for <ident> among <expression>'" }
+    { "expected 'in', as in the form '<expression> for <ident> among <expression>'" }
 
   | expression; FOR; lident; AMONG
     / expression: expression FOR lident AMONG . expression
@@ -492,7 +492,7 @@ rule syntax_error = parse error
     [expression
      / expression: expression FOR lident AMONG expression .
      / expression: expression FOR lident AMONG expression . SUCH THAT expression]
-    { "Expected 'such that <expression>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
+    { "expected 'such that <expression>', or a binary operator continuing the expression, or a keyword ending the expression and starting the next item" }
 
   | expression; FOR; lident; AMONG; expression; SUCH
     / expression: expression FOR lident AMONG expression SUCH . THAT expression
